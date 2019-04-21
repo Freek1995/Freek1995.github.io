@@ -1,0 +1,25 @@
+technology,D3,D2,D1,C3,C2,C1,B3,B2,B1,A3,A2,A1,label
+Agronomy practices,1,0,0,1,1,0,0,1,0,0,1,0,A
+Air transport,1,0,0,1,0,1,0,0,1,0,0,1,B
+Battery Electric Vehicles,2,1,1,0,0,1,1,0,2,1,1,1,C
+Bioethanol lignocellulosic,1,1,1,2,1,1,1,1,1,1,2,1,D
+Building efficiency new built,0,1,1,0,0,1,0,1,1,1,1,2,E
+Cars full hybrid,0,1,0,0,0,0,0,0,0,0,1,1,F
+Cars plug-in hybrid,1,1,1,0,0,1,1,1,1,0,1,1,G
+Clinker substition by fly ash,1,0,0,0,1,1,0,1,2,0,0,0,H
+Coal CCS new built,0,2,1,2,0,2,1,2,2,2,2,2,I
+Coal CCS retrofit,2,2,1,2,2,2,1,2,2,2,2,2,J
+Composting new waste,1,0,0,0,1,1,0,1,2,0,1,1,K
+Cropland nutrient management,1,0,1,1,0,0,1,1,1,0,0,0,L
+Electricity from landfill gas,0,1,0,0,0,1,1,1,2,1,1,2,M
+Energy efficiency 1 iron & steel,0,1,0,1,1,0,0,1,0,2,0,2,N
+Geothermal,1,1,0,1,1,1,1,2,2,2,2,2,O
+Grassland management,1,0,1,1,0,0,1,1,1,0,0,0,P
+High penetration wind,0,1,1,1,1,2,1,2,2,1,2,2,Q
+Lighting switch to LED (residential),0,0,1,0,0,0,0,0,0,0,0,1,R
+Nuclear energy,0,2,0,1,0,1,1,2,2,2,2,2,S
+PV panels homes,1,0,1,0,0,1,0,1,0,1,1,1,T
+Reduced deforestation (agriculture),2,0,1,0,2,2,1,2,2,1,2,1,U
+Reduced deforestation (timber harvesting),2,0,1,0,2,2,1,2,2,1,2,1,V
+Residential appliances,1,1,1,1,1,0,0,1,1,1,1,1,W
+Small hydro,1,1,0,0,1,2,0,1,2,1,2,2,X

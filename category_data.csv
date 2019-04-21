@@ -1,0 +1,25 @@
+technology,Behavior,Physical Interdependencies,Multi-actor Complexity,Cost and Financials,label
+Agronomy practices,1,2,1,1,A
+Air transport,1,2,1,1,B
+Battery Electric Vehicles,4,1,3,3,C
+Bioethanol lignocellulosic,3,4,3,4,D
+Building efficiency new built,2,1,2,4,E
+Cars full hybrid,1,0,0,2,F
+Cars plug-in hybrid,3,1,3,2,G
+Clinker substition by fly ash,1,2,3,0,H
+Coal CCS new built,3,4,5,6,I
+Coal CCS retrofit,5,6,5,6,J
+Composting new waste,1,2,3,2,K
+Cropland nutrient management,2,1,3,0,L
+Electricity from landfill gas,1,1,4,4,M
+Energy efficiency 1 iron & steel,1,2,1,4,N
+Geothermal,2,3,5,6,O
+Grassland management,2,1,3,0,P
+High penetration wind,2,4,5,5,Q
+Lighting switch to LED (residential),1,0,0,1,R
+Nuclear energy,2,2,5,6,S
+PV panels homes,2,1,1,3,T
+Reduced deforestation (agriculture),3,4,5,4,U
+Reduced deforestation (timber harvesting),3,4,5,4,V
+Residential appliances,3,2,2,3,W
+Small hydro,2,3,3,5,X
