@@ -123,8 +123,8 @@
                                 </div>
                                 <div align="left" class="col-6">
                                     <button type="button" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;">
-                                        <i class="fas fa-balance-scale"></i>
-                                        <a href="#chartholder_cat">Change Weights</a>
+                                        <i href="#chartholder_cat" class="fas fa-balance-scale"></i>
+                                        <span href="#chartholder_cat">Change Weights</span>
                                     </button>
                                 </div>                                        
                             </div>
@@ -136,15 +136,14 @@
                             <div class="row">
                                 <div align= "right"class="col-6">
                                     <button type="button" onclick="switch_graphs();switch_sliders();switch_tooltip()" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;"> 
-                                        <!-- include switch_sliders() in the previous row to be able to adjust the weights of the categories  -->
-                                        <i class="fas fa-chart-bar"></i>
+                                            <i class="fas fa-chart-bar"></i>
                                         <span>Toggle level of detail</span>
                                     </button>  
                                 </div>
                                 <div align="left" class="col-6">
-                                    <button type="button" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;">
-                                        <i class="fas fa-balance-scale"></i>
-                                        <a href="#chartholder_fac">Change Weights</a>
+                                    <button href ="#chartholder_fac" type="button" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;">
+                                        <i href ="#chartholder_fac"class="fas fa-balance-scale"></i>
+                                        <span href ="#chartholder_fac">Change Weights</span>
                                     </button>  
                                 </div>
                             </div>
@@ -167,37 +166,37 @@
                             <div class="row" >
                                 <div class="col-2"><p style="height:25px; color:black">Investment cost required (A1)</p>
                                     <div id="slider_A1" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="A1_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="A1_weight">
                                     <p>Weight Multiplier: <span id="A1_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black">Expected pay-back Time (A2)</p>
                                     <div id="slider_A2" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="A2_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="A2_weight">
                                     <p>Weight Multiplier: <span id="A2_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black">Difficulty in financing investment (A3)</p>
                                     <div id="slider_A3" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="A3_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="A3_weight">
                                     <p>Weight Multiplier: <span id="A3_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black">Dependence on other actors (B1)</p>
                                     <div id="slider_B1" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="B1_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="B1_weight">
                                     <p>Weight Multiplier: <span id="B1_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black">Diversity of actors involved (B2)</p>
                                     <div id="slider_B2" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="B2_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="B2_weight">
                                     <p>Weight Multiplier: <span id="B2_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black">Unclear division of roles and responsibilities (B3)</p>
                                     <div id="slider_B3" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="B3_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="B3_weight">
                                     <p>Weight Multiplier: <span id="B3_weight_display"></span></p>
                                     </div>
                                 </div>
@@ -205,37 +204,37 @@
                             <div class="row" >
                                 <div class="col-2"><p style="height:25px; color:black"> Physical embeddedness (C1)</p>
                                     <div id="slider_C1" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="C1_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="C1_weight">
                                     <p>Weight Multiplier: <span id="C1_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black"> Disturbs regular operation (C2)</p>
                                     <div id="slider_C2" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="C2_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="C2_weight">
                                     <p>Weight Multiplier: <span id="C2_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black">Technology uncertainty (C3)</p>
                                     <div id="slider_C3" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="C3_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="C3_weight">
                                     <p>Weight Multiplier: <span id="C3_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black">Absence of knowledge of actor (D1)</p>
                                     <div id="slider_D1" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="D1_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="D1_weight">
                                     <p>Weight Multiplier: <span id="D1_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black">Frequency of opportunity (D2)</p>
                                     <div id="slider_D2" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="D2_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="D2_weight">
                                     <p>Weight Multiplier: <span id="D2_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black">Requires change in behavior (D3)</p>
                                     <div id="slider_D3" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="D3_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="D3_weight">
                                     <p>Weight Multiplier: <span id="D3_weight_display"></span></p>
                                     </div>    
                                 </div>   
@@ -246,25 +245,25 @@
                                 <div class="col-2"></div>
                                 <div class="col-2"><p style="height:25px; color:black">Cost and Financials </p>    
                                     <div id="slider_costs" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="costs_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="costs_weight">
                                     <p>Weight Multiplier: <span id="costs_weight_display"></span></p>
-                                    </div>
-                                </div>
-                                <div class="col-2"><p style="height:25px; color:black">Physical Interdependencies</p>
-                                    <div id="slider_physical" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="physical_weight">
-                                    <p>Weight Multiplier: <span id="physical_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black">Multi actor complexities</p>
                                     <div id="slider_multiactor" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="multiactor_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="multiactor_weight">
                                     <p>Weight Multiplier: <span id="multiactor_weight_display"></span></p>
+                                    </div>
+                                </div>
+                                <div class="col-2"><p style="height:25px; color:black">Physical Interdependencies</p>
+                                    <div id="slider_physical" class="slidecontainer">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="physical_weight">
+                                    <p>Weight Multiplier: <span id="physical_weight_display"></span></p>
                                     </div>
                                 </div>
                                 <div class="col-2"><p style="height:25px; color:black">Behavior</p>
                                     <div id="slider_behavior" class="slidecontainer">
-                                    <input type="range" min="0" max="4" value="1" step=".1" id="behavior_weight">
+                                    <input type="range" min="0" max="40" value="10" step="1" id="behavior_weight">
                                     <p>Weight Multiplier: <span id="behavior_weight_display"></span></p>
                                     </div>
                                 </div> 
@@ -274,7 +273,10 @@
                     <div class="row">
                         <div class="col-12"  id="options_holder" style="margin:10px"></div>
                         <div class="col-12" name="Y-factor MACC">
-                            <h3 style="background-color :#d3d3d3;border-radius:5px; padding:4px; margin:1px"> Y-Factor MACC crossover</h3>
+                            <h3 style="background-color :#d3d3d3;border-radius:5px; padding:4px; margin:1px"> Y-Factor MACC crossover <i class="fas fa-info-circle fa-sm" onmouseover="" align="bottom" style="cursor: pointer;color:grey;size:10px" onclick="togglemaccinfo()"></i></h3>
+                        </div>
+                        <div class="col-12"  id="maccinfo" style="display:none">
+                            <p>The scatterplot below shows a crossover between the McKinsey MACC curve and the Y-factor. The X-axis shows the marginal abatement costs (from the McKinsey Curve) and the Y-axis shows the Y-values. The size of the dots is determined by the abatement potential of the different abatement options. </p>
                         </div>
                         <div class="col-12"  id="scatterplot"></div>
                     </div>
@@ -282,60 +284,24 @@
                 <div class="col-3">
                     <nav class="sticky-top">     
                     <div class="row">
-                        <div class="col-12 text-dark;" align="left" style="font-size:14px;background-color:rgb(228, 228, 228);border-top-left-radius: 15px; border-top-right-radius: 15px">
-                        <br>
-                        <h5 align="center">Toggle carbon abatement options</h5>
-
-                            <input type="checkbox" name="cb" checked="true" value="Agronomy practices"> <span style="color:red"> A:</span><span> Agronomy practices </span><i class="fa fa-info-circle" style="color:grey" name="information" id="Agronomy practices"></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Air transport"><span style="color:red"> B:</span><span> Air transport </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Battery Electric Vehicles"><span style="color:red"> C:</span><span> Battery Electric Vehicles </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Bioethanol lignocellulosic"><span style="color:red"> D:</span><span> Bioethanol lignocellulosic </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Building efficiency new built"><span style="color:red"> E:</span><span> Building efficiency new built </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Cars full hybrid"><span style="color:red"> F:</span><span> Cars full hybrid </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Cars plug-in hybrid"><span style="color:red"> G:</span><span> Cars plug-in hybrid </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Clinker substition by fly ash"><span style="color:red"> H:</span><span> Clinker substition by fly ash </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Coal CCS new built"><span style="color:red"> I:</span><span> Coal CCS new built </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Coal CCS retrofit"><span style="color:red"> J:</span><span> Coal CCS retrofit </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Composting new waste"><span style="color:red"> K:</span><span> Composting new waste </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Cropland nutrient management"><span style="color:red"> L:</span><span> Cropland nutrient management </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Electricity from landfill gas"><span style="color:red"> M:</span><span> Electricity from landfill gas </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br><!--<br>
-                         </div>
-                         <div class="col-6 text-dark" style="font-size:12px;background-color:rgb(228, 228 , 228)">
-                            <br> -->
-                            <input type="checkbox" name="cb" checked="true" value="Energy efficiency 1 iron & steel"><span style="color:red"> N:</span><span> Energy efficiency 1 iron & steel </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Geothermal"><span style="color:red"> O:</span><span> Geothermal </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Grassland management"><span style="color:red"> P:</span><span> Grassland management </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="High penetration wind"><span style="color:red"> Q:</span><span> High penetration wind </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Lighting switch to LED (residential)"><span style="color:red"> R:</span><span> Lighting switch to LED (residential) </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Nuclear"><span style="color:red"> S:</span><span> Nuclear </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="PV panels homes"><span style="color:red"> T:</span><span> PV panels homes </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Reduced deforestation (timber harvesting)"><span style="color:red"> U:</span><span> Reduced deforestation (timber harvesting) </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Reduced deforestation (agriculture)"><span style="color:red"> V:</span><span> Reduced deforestation (agriculture) </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Residential appliances"><span style="color:red"> W:</span><span> Residential appliances </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br>
-                            <input type="checkbox" name="cb" checked="true" value="Small hydro"><span style="color:red"> X:</span><span> Small hydro </span><i class="fa fa-info-circle" style="color:grey" id="" ></i><br><br>        
-                        </div>
+                        <div class="col-12 text-dark;" align="left" style="font-size:14px;background-color:rgb(228, 228, 228);border-top-left-radius: 15px; border-top-right-radius: 15px" id="checkboxholder"></div>          
                             <div class="col-6 text-dark" align="center" style="background-color:rgb(228, 228 , 228);border-bottom-left-radius: 15px">
                                 <input class="btn btn-primary"  type="submit" id="submit" value= "Submit" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none"><br> </input><p></p>
                             </div>
                             <div class="col-6 text-dark" style="background-color:rgb(228, 228 , 228);border-bottom-right-radius: 15px">
                                 <input class="btn btn-secondary" type="Button" onclick="togglecheckboxes('cb')" value="Toggle all" ><br><p></p>
                             </div>
-                        </div>
+                    </div>
                     </nav>
                     </div>             
             </div>
         </div>
     </div>
 </div>
-
-                <script type = "text/javascript" src = "category_chart.js" ></script>
-                <script type = "text/javascript" src = "variables_category.js"></script>
-                <script type = "text/javascript" src = "variables_factor.js"></script>
-                <script type = "text/javascript" src = "factor_chart.js" ></script>
-                <script type = "text/javascript" src = "MACC.js"></script>
-                
-            
-            
+                <script type = "text/javascript" src = "information.js"></script>
+                <script type = "text/javascript" src = "functions_variables.js"></script>
+                <script type = "text/javascript" src = "charts.js" ></script>
+                 
         </div>
     </div>
 
@@ -370,30 +336,30 @@
             });
         });
     </script>
-                    <div id="Lighting switch to LED (residential)"></div>
-                    <div id="Cars full hybrid"></div>
-                    <div id="Air transport"></div>
-                    <div id="Agronomy practices"></div>
-                    <div id="Cropland nutrient management"></div>
-                    <div id="Clinker substition by fly ash"></div>
-                    <div id="Grassland management"></div>
+                    <div id="Lighting switch to LED (residential)" ></div>
+                    <div id="Cars full hybrid" ></div>
+                    <div id="Air transport" ></div>
+                    <div id="Agronomy practices" ></div>
+                    <div id="Cropland nutrient management" ></div>
+                    <div id="Clinker substition by fly ash" ></div>
+                    <div id="Grassland management" ></div>
                     <div id="PV panels homes"></div>
                     <div id="Composting new waste"></div>
                     <div id="Energy efficiency 1 iron & steel"></div>
-                    <div id="Cars plug-in hybrid"></div>
-                    <div id="Building efficiency new built"></div>
-                    <div id="Residential appliances"></div>
-                    <div id="Electricity from landfill gas"></div>
-                    <div id="Battery Electric Vehicles"></div>
-                    <div id="Small hydro"></div>
-                    <div id="Nuclear"></div>
-                    <div id="Bioethanol lignocellulosic"></div>
-                    <div id="Geothermal"></div>
-                    <div id="High penetration wind"></div>
-                    <div id="Reduced deforestation (agriculture)"></div>
-                    <div id="Reduced deforestation (timber harvesting)"></div>
-                    <div id="Coal CCS new built"></div>
-                    <div id="Coal CCS retrofit"></div>
+                    <div id="Cars plug-in hybrid" ></div>
+                    <div id="Building efficiency new built" ></div>
+                    <div id="Residential appliances" ></div>
+                    <div id="Electricity from landfill gas" ></div>
+                    <div id="Battery Electric Vehicles" ></div>
+                    <div id="Small hydro" ></div>
+                    <div id="Nuclear energy" ></div>
+                    <div id="Bioethanol lignocellulosic" ></div>
+                    <div id="Geothermal" ></div>
+                    <div id="High penetration wind" ></div>
+                    <div id="Reduced deforestation (agriculture)" ></div>
+                    <div id="Reduced deforestation (timber harvesting)" ></div>
+                    <div id="Coal CCS new built" ></div>
+                    <div id="Coal CCS retrofit" ></div>
 </body>
 
 </html>

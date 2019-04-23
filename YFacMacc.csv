@@ -1,25 +1,25 @@
-technology,yvalues,maccvalues,numbers,dx,dy
-Agronomy practices,5,15.8,A,".71em",".35em"
-Air transport,5,-20.5,B,".71em",".35em"
-Battery Electric Vehicles,11,90,C,".71em",".35em"
-Bioethanol lignocellulosic,14,-138.8,D,".71em",".35em"
-Building efficiency new built,9,-40.2,E,".71em",".35em"
-Cars full hybrid,3,-72.9,F,".71em",".35em"
-Cars plug-in hybrid,9,18.1,G,".71em",".35em"
-Clinker substition by fly ash,6,-32,H,".71em",".35em"
-Coal CCS new built,18,62.2,I,".71em",".35em"
-Coal CCS retrofit,22,64.6,J,".71em",".35em"
-Composting new waste,8,9.9,K,".71em",".35em"
-Cropland nutrient management,6,-68.8,L,".71em",".35em"
-Electricity from landfill gas,10,-23.4,M,".71em",".35em"
-Energy efficiency 1 iron & steel,8,8.2,N,-4em,1.4em
-Geothermal,16,-3.9,O,-".71em",.35em
-Grassland management,6,3.4,P,".71em",".35em"
-High penetration wind,16,32.4,Q,".71em",".35em"
-Lighting switch to LED (residential),2,-253.1,R,".71em",".35em"
-Nuclear,15,10.4,S,".71em",".35em"
-PV panels homes,7,27.9,T,".71em",".35em"
-Reduced deforestation (timber harvesting),16,6.9,U,".71em",".35em"
-Reduced deforestation (agriculture),16,39.9,V,".71em",".35em"
-Residential appliances,10,-195.8,W,".71em",".35em"
-Small hydro,13,-8.9,X,".71em",".35em"
+technology,yvalues,maccvalues,numbers,potential
+Agronomy practices,5,15.8,A,255
+Air transport,5,-20.5,B,256
+Battery Electric Vehicles,11,90,C,500
+Bioethanol lignocellulosic,14,-138.8,D,248
+Building efficiency new built,9,-40.2,E,624
+Cars full hybrid,3,-72.9,F,359
+Cars plug-in hybrid,9,18.1,G,282
+Clinker substition by fly ash,6,-32,H,189
+Coal CCS new built,18,62.2,I,572
+Coal CCS retrofit,22,64.6,J,1620
+Composting new waste,8,9.9,K,221
+Cropland nutrient management,6,-68.8,L,132
+Electricity from landfill gas,10,-23.4,M,351
+Energy efficiency 1 iron & steel,8,8.2,N,246
+Geothermal,16,-3.9,O,269
+Grassland management,6,3.4,P,1343
+High penetration wind,16,32.4,Q,1043
+Lighting switch to LED (residential),2,-253.1,R,221
+Nuclear energy,15,10.4,S,1840
+PV panels homes,7,27.9,T,1216
+Reduced deforestation (agriculture),16,39.9,U,1208
+Reduced deforestation (timber harvesting),16,6.9,V,262
+Residential appliances,10,-195.8,W,255
+Small hydro,13,-8.9,X,329
