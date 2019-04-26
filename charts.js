@@ -1,6 +1,6 @@
 //setting the axis and rectangles for bar chart 12-factor scale
 
-var margin = {top: 20, right: 30, bottom: 240, left: 170},
+var margin = {top: 50, right: 30, bottom: 240, left: 170},
     width = 1070 - margin.left - margin.right,
     height = 450 - margin.top - margin.bottom;
 
@@ -11,7 +11,7 @@ var y = d3.scale.linear()
     .rangeRound([height, 0]);
 
 var color = d3.scale.ordinal()
-    .range(["#485b6e","#6c7b8b","#919ca8","#63822f","#8EBA43","#b0cf7a","#cbb006", "#F9DC24","#fbe86e","#cd6216","#EB8A44","#f2b589"]);
+    .range(["#485b6e","#6c7b8b","#919ca8","#63822f","#8EBA43","#b0cf7a","#cbb006", "#F9DC24","#fbe86e","#cd6216","#EB8A44","#f2b589",'red']);
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -28,7 +28,7 @@ var svg = d3.select("#barchart_factor").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var div_tooltip_fac = d3.select("#chartholder_fac").append("div")
+var div_tooltip_fac = d3.select("#tooltipholder_fac").append("div")
   .attr("class", "tooltip_fac")
   .style("opacity", 0)
   .attr("align","left")
@@ -46,15 +46,22 @@ function parsedataset(error, data) {
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "technology" && key !=="label" && key !=="info" && key !=="barrier"; }));
 
   data.forEach(function(d) {
+// console.log(color.domain())
     var mytech = d.technology; //add to stock code
     var y0 = 0;
+    d['costs'] = parseFloat(d['A1'])+parseFloat(d['A2'])+parseFloat(d['A3'])
+    d['multiactor'] = parseFloat(d['B1'])+parseFloat(d['B2'])+parseFloat(d['B3'])
+    d['physical'] = parseFloat(d['C1'])+parseFloat(d['C2'])+parseFloat(d['C3'])
+    d['behavior'] = parseFloat(d['D1'])+parseFloat(d['D2'])+parseFloat(d['D3'])
 
+    // console.log(d)
+    
     d.factors = color.domain().map(function(name) { return {mytech:mytech, name: name, y0: y0, y1: y0 += +d[name]}; });
     d.total = d.factors[d.factors.length - 1].y1;
-
     dataset = data
     checkboxdata = data
   });
+  // console.log(data)
   makeBarChart(dataset); //12-factorbarchart
   makecheckbox(dataset);
 };
@@ -66,7 +73,7 @@ function changedataset() {
 // adding weights to the factors
   new_data.forEach(function(d){
     d['technology'] = d['technology']
-    d['appelsap'] = d['A1']
+
     d['A1'] = d['A1'] * A1_weight
     d['A2'] = d['A2'] * A2_weight
     d['A3'] = d['A3'] * A3_weight
@@ -152,8 +159,8 @@ var mouseover_fac = function (d){
                   "<span style='color:red"  + ";'>" +description+ " : " + "</span>" + delta;
 
     div_tooltip_fac.html(info_fac)
-        .style("left", (220+"px") )
-        .style("top", (-10+"px") )
+        .style("left", (margin.left+20+"px") )
+        .style("top", (40+"px") )
         .style("background","none")
         // .attr("align", "center")
       .transition()
@@ -203,12 +210,13 @@ d3.selectAll("#xaxis")
 
 // get values from dropdown list
 var mouseover_legend_fac = function (d){
-  var info_legend_fac = "<b>" + category + "</b>" + "<br>" +
-                        description
+  var info_legend_fac = "\xa0" + "<b>" + category + "</b>" + "\xa0" + "<br>" +
+                        "\xa0" + description + "\xa0"
     div_tooltip_fac.html(info_legend_fac)
-        .style("left", (135) + "px")
-        .style("top", (10) +"px")
+        .style("left", 25 + "px")
+        .style("top", 40 +"px")
         .style("background","lightgrey")
+        .style("border-radius","5px")
         .style("font-size",13)
         .attr("align","left")
         // .style("left", (130) + "px")
@@ -232,8 +240,8 @@ var  mouseout_legend_fac = function(d) {
 
 //adding colors and squares to the legend
   legend.append("rect")
-      .attr("x", -50)
-      .attr("width", 11)
+      .attr("x", -160)
+      .attr("width", 18)
       .attr("height", 11)
       .style("fill", color)
       .attr("id", function (d, i) {
@@ -251,7 +259,7 @@ var  mouseout_legend_fac = function(d) {
   
 // Giving the legend text
   legend.append("text")
-      .attr("x", -36 )
+      .attr("x", -136 )
       .attr("y", 6)
       .attr("font-size",13)
       .attr("dy", ".35em")
@@ -268,7 +276,7 @@ var  mouseout_legend_fac = function(d) {
     };
 
 // setting the 4-cateogory bar chart axis 
-var margin_cat = {top_cat: 20, right_cat: 30, bottom_cat: 240, left_cat: 170},
+var margin_cat = {top_cat: 50, right_cat: 30, bottom_cat: 240, left_cat: 170},
     width_cat = 1070 - margin_cat.left_cat - margin_cat.right_cat,
     height_cat = 450 - margin_cat.top_cat - margin_cat.bottom_cat;
 
@@ -296,39 +304,53 @@ var svg_cat = d3.select("#barchart_category").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin_cat.left_cat + "," + margin_cat.top_cat + ")");
 
-var div_tooltip_cat = d3.select("#chartholder_cat").append("div")
+var div_tooltip_cat = d3.select("#barchart_category").append("div")
   .attr("class", "tooltip_cat")
   .style("opacity", 0)
   .attr("align","left")
 
 // Load the needed files
 queue()
-  .defer(d3.csv, "category_data.csv") 
+  .defer(d3.tsv, "factor_data.txt") 
   .await(parsedataset_cat)
 
 
 function parsedataset_cat(error, data) {
-  color_cat.domain(d3.keys(data[0]).filter(function(key) { return key !== "technology" && key !== "label"; }));
+  data.forEach(function(d) {
+   
+    d['Behavior'] = parseFloat(d['D1'])+parseFloat(d['D2'])+parseFloat(d['D3'])
+    d['Physical Interdependencies'] = parseFloat(d['C1'])+parseFloat(d['C2'])+parseFloat(d['C3'])
+    d['Multi-actor Complexity'] = parseFloat(d['B1'])+parseFloat(d['B2'])+parseFloat(d['B3'])
+    d['Cost and Financials'] = parseFloat(d['A1'])+parseFloat(d['A2'])+parseFloat(d['A3'])
+  }
+  )
+
+  color_cat.domain(d3.keys(data[0]).filter(function(key) { return key !==  "technology" && key !== "label" && key !=="barrier" && key !=="info" && key !=="A1" && key !=="A2" && key !=="A3" && key !=="B1" && key !=="B2" && key !=="B3" && key !=="C1" && key !=="C2" && key !=="C3" && key !=="D1" && key !=="D2" && key !=="D3" ; }));
 
   data.forEach(function(d) {
     var mytech = d.technology; //add to stock code
     var y0 = 0;
-
+    
     //d.factors = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
     d.factors = color_cat.domain().map(function(name) { return {mytech:mytech, name: name, y0: y0, y1: y0 += +d[name]}; });
     d.total = d.factors[d.factors.length - 1].y1;
 
-    dataset_cat = data
+    dataset = data
     checkboxdata_cat = data
   });
-  makeBarChart_cat(dataset_cat);
+  // console.log(dataset_cat)
+  makeBarChart_cat(dataset);
 };
 
 function changedataset_cat() {
-  new_data = JSON.parse(JSON.stringify(dataset_cat));
+  new_data = JSON.parse(JSON.stringify(dataset));
 
   new_data.forEach(function(d){
 
+    d['Behavior'] = parseFloat(d['D1'])+parseFloat(d['D2'])+parseFloat(d['D3'])
+    d['Physical Interdependencies'] = parseFloat(d['C1'])+parseFloat(d['C2'])+parseFloat(d['C3'])
+    d['Multi-actor Complexity'] = parseFloat(d['B1'])+parseFloat(d['B2'])+parseFloat(d['B3'])
+    d['Cost and Financials'] = parseFloat(d['A1'])+parseFloat(d['A2'])+parseFloat(d['A3'])
 
     d['technology'] = d['technology']
     d['Cost and Financials'] = d['Cost and Financials'] * costs_weight
@@ -421,7 +443,7 @@ var mouseover_cat = function (d){
                   "<span style='color:red"  + ";'>" +d.name + " : " + "</span>" + delta;
 
     div_tooltip_cat.html(info_cat)
-        .style("left", (220+"px") )
+        .style("left", (margin_cat.left_cat+20+"px") )
         .style("top", (-10+"px") )
         .style("background","none")
         // .attr("align","center")
@@ -470,9 +492,10 @@ var mouseover_legend_cat = function (d){
                         "\xa0"+ subcat2 + "\xa0"+"<br/>" +
                         "\xa0"+ subcat3 + "\xa0"+"<br/>";
     div_tooltip_cat.html(info_legend_cat)
-        .style("left", (30) + "px")
-        .style("top", (-40) +"px")
+        .style("left", 25 + "px")
+        .style("top", -60 +"px")
         .style("background","lightgrey")
+        .style("border-radius","5px")
         .attr('align','left')
       .transition()
         .duration(200) // ms
@@ -578,6 +601,7 @@ var makescatterplot = function(data) {
     canvas.selectAll('g').remove()
     canvas.selectAll('.dot').remove()
     canvas.selectAll('.labels').remove()
+    canvas.selectAll('.tick').remove()
     canvas.selectAll('div').remove()
   // Common pattern for defining vis size and margins
   yScale.domain([ d3.min(data, function(d) { return d.yvalues; }) - 1,
@@ -598,6 +622,8 @@ var makescatterplot = function(data) {
       .style("text-anchor", "end") // right-justify text
       .text("Abatement cost [€/tCO2eq]");
 
+      
+
   // Add y-axis to the canvas   
   canvas.append("g")
       .attr("class", "axis") // .orient('left') took care of axis positioning for us
@@ -609,6 +635,9 @@ var makescatterplot = function(data) {
       .attr("y", 15) // y-offset from yAxis, moves text to the RIGHT because it's rotated, and positive y is DOWN
       .style("text-anchor", "end")
       .text("Y-values");
+    
+  canvas.selectAll('.tick')
+      .style('font-size', '12px')
 
   // Add the tooltip container to the vis container
   // it's invisible and its position/contents are defined during mouseover
@@ -660,6 +689,8 @@ canvas.selectAll("labels")
     .attr("x", function(d) { return xScale(d.maccvalues); })
     .attr("y", function(d) { return yScale(d.yvalues); })
     .style("fill", "red")
+    .style("font-size","12px")
+    .style("font-weight","bold")
     .on("mouseover", tipMouseover)
     .on("mouseout", tipMouseout)
     .text(function(d){return d.numbers;});

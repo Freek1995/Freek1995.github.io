@@ -110,57 +110,57 @@
         </div>    
             <div class="line" id="ycurve"></div>
             <div class="row">
-                <div class="col-12"  >                     
-                    <div class = "row">
-                        <div class="col-12" align="center" id="buttons_fac" style="display:none;margin-bottom:40px">
-                            <h3 align="center">Y-factor curve: High level of detail</h3>
-                            <div class="row">
-                                <div align= "right"class="col-6">
-                                    <button type="button" onclick="switch_graphs();switch_sliders();switch_tooltip()" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;">
-                                        <i class="fas fa-chart-bar"></i>
-                                        <span>Toggle level of detail</span>
-                                    </button>  
+                    <div class="col-9">
+                    <div class="ycurvebox" style="border:1px solid black">
+                            <div class="col-12"  >                     
+                                    <div class = "row">
+                                        <div class="col-12" align="center" id="buttons_fac" style="display:none">
+                                            <h3 align="center" style="margin-top: 10px">Y-factor curve: Low level of detail</h3>
+                                            <div class="row">
+                                                <div align= "right"class="col-6">
+                                                    <button type="button" onclick="switch_graphs();switch_sliders();switch_tooltip()" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;">
+                                                        <i class="fas fa-chart-bar"></i>
+                                                        <span>Toggle level of detail</span>
+                                                    </button>  
+                                                </div>
+                                                <div align="left" class="col-6">
+                                                    <button type="button" onclick="reset_weights()" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;">
+                                                        <i href="#chartholder_cat" class="fas fa-balance-scale"></i>
+                                                        <span href="#chartholder_cat">Reset Weights</span>
+                                                    </button>
+                                                </div>                                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class = "row">
+                                        <div class="col-12" align="center" id="buttons_cat" >
+                                            <h3 align="center" style="margin-top: 10px">Y-factor curve: High level of detail</h3>
+                                            <div class="row">
+                                                <div align= "right"class="col-6">
+                                                    <button type="button" onclick="switch_graphs();switch_sliders();switch_tooltip()" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;"> 
+                                                            <i class="fas fa-chart-bar"></i>
+                                                        <span>Toggle level of detail</span>
+                                                    </button>  
+                                                </div>
+                                                <div align="left" class="col-6">
+                                                    <button href ="#chartholder_fac" type="button" onclick="reset_weights()" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;">
+                                                        <i href ="#chartholder_fac"class="fas fa-balance-scale"></i>
+                                                        <span href ="#chartholder_fac">Reset Weights</span>
+                                                    </button>  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div align="left" class="col-6">
-                                    <button type="button" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;">
-                                        <i href="#chartholder_cat" class="fas fa-balance-scale"></i>
-                                        <span href="#chartholder_cat">Change Weights</span>
-                                    </button>
-                                </div>                                        
-                            </div>
-                        </div>
+                    <div class="col-12" align = "left" id="tooltipholder_cat" style="display:none;border-left:1px solid black;border-right:1px solid black"></div>
+                    <div class="col-12" align = "left" id="tooltipholder_fac" ></div>
+                    <div class="col-12" align = "left" id="barchart_category" style="margin-top:50px;display:none;"></div>
+                    <div class="col-12" align = "left" id="barchart_factor" style="margin-top:50px" ></div>
                     </div>
-                    <div class = "row">
-                        <div class="col-12" align="center" id="buttons_cat" style="margin-bottom:40px">
-                            <h3>Y-factor curve: Low level of detail</h3>
-                            <div class="row">
-                                <div align= "right"class="col-6">
-                                    <button type="button" onclick="switch_graphs();switch_sliders();switch_tooltip()" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;"> 
-                                            <i class="fas fa-chart-bar"></i>
-                                        <span>Toggle level of detail</span>
-                                    </button>  
-                                </div>
-                                <div align="left" class="col-6">
-                                    <button href ="#chartholder_fac" type="button" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none; font-size:15px;">
-                                        <i href ="#chartholder_fac"class="fas fa-balance-scale"></i>
-                                        <span href ="#chartholder_fac">Change Weights</span>
-                                    </button>  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-9">
-                    <div class="col-12" align = "center" id="chartholder_cat" style="height:50px; display:none"></div>
-                    <div class="col-12" align = "center" id="chartholder_fac" style="height:50px"></div>
-                    <div class="col-12" align = "center" id="barchart_category" style="display:none;"></div>
-                    <div class="col-12" align = "center" id="barchart_factor" ></div>
                     <div class="line" style="margin:10px;"></div>
                     <div id="sliders">
                         <div class="col-12" id="header sliders">
-                            <h4 align="center"style="height: 40px">Adjust the weights</h4>
+                            <h4 align="center"style= "height: 40px">Adjust the weights</h4>
                         </div>
                         <div id ="sliders_factor" style=" font-size:11px; height:200px">
                             <div class="row" >
@@ -271,26 +271,33 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12"  id="options_holder" style="margin:10px"></div>
+                        <div class="col-12"  id="options_holder" style="margin-bottom: 10px"></div>
                         <div class="col-12" name="Y-factor MACC">
                             <h3 style="background-color :#d3d3d3;border-radius:5px; padding:4px; margin:1px"> Y-Factor MACC crossover <i class="fas fa-info-circle fa-sm" onmouseover="" align="bottom" style="cursor: pointer;color:grey;size:10px" onclick="togglemaccinfo()"></i></h3>
                         </div>
                         <div class="col-12"  id="maccinfo" style="display:none">
                             <p>The scatterplot below shows a crossover between the McKinsey MACC curve and the Y-factor. The X-axis shows the marginal abatement costs (from the McKinsey Curve) and the Y-axis shows the Y-values. The size of the dots is determined by the abatement potential of the different abatement options. </p>
                         </div>
-                        <div class="col-12"  id="scatterplot"></div>
+                        <div class="col-12" align="center" id="scatterplot"></div>
                     </div>
                 </div>
-                <div class="col-3">
-                    <nav class="sticky-top">     
+                <div class="col-3">   
                     <div class="row">
-                        <div class="col-12 text-dark;" align="left" style="font-size:14px;background-color:rgb(228, 228, 228);border-top-left-radius: 15px; border-top-right-radius: 15px" id="checkboxholder"></div>          
-                            <div class="col-6 text-dark" align="center" style="background-color:rgb(228, 228 , 228);border-bottom-left-radius: 15px">
+                        <div class="col-12 text-dark;" align="left" style="font-size:14px;background-color:rgb(228, 228, 228);border-top-left-radius: 5px; border-top-right-radius: 5px">
+                        <br><h6 align="center" style="font-weight:bold">Filter and change Abatement options</h6>
+                        <p>The abatement options can be filtered by checking the checkboxes and pressing the submit button. To change values of an abatement option, click this specific option and a menu will pop-up below the Y-curve.</p>
+                        </div>
+                    </div>
+                    <nav class="sticky-top">  
+                    <div class="row">
+                        <div class="col-12 text-dark;" align="left" style="font-size:14px;background-color:rgb(228, 228, 228)" id="checkboxholder"></div>       
+                            <div class="col-6 text-dark" align="center" style="background-color:rgb(228, 228 , 228);border-bottom-left-radius: 5px">
                                 <input class="btn btn-primary"  type="submit" id="submit" value= "Submit" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none"><br> </input><p></p>
                             </div>
-                            <div class="col-6 text-dark" style="background-color:rgb(228, 228 , 228);border-bottom-right-radius: 15px">
-                                <input class="btn btn-secondary" type="Button" onclick="togglecheckboxes('cb')" value="Toggle all" ><br><p></p>
+                            <div class="col-6 text-dark" style="background-color:rgb(228, 228 , 228);border-bottom-right-radius: 5px">
+                                <input class="btn btn-secondary" type="Button" onclick="togglecheckboxes('cb')" value="(De) Select All" ><br><p></p>
                             </div>
+                    </div>
                     </div>
                     </nav>
                     </div>             

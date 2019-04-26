@@ -168,7 +168,6 @@ document.getElementById('slider_costs').oninput = function() {
   document.getElementById('A1_weight_display').innerHTML = parseFloat(Math.round(A1_weight * 100) / 100).toFixed(1);
   document.getElementById('A2_weight_display').innerHTML = parseFloat(Math.round(A2_weight * 100) / 100).toFixed(1);
   document.getElementById('A3_weight_display').innerHTML = parseFloat(Math.round(A3_weight * 100) / 100).toFixed(1);
-  console.log(A1_initial_weight,A2_initial_weight,A3_initial_weight,A1_weight,A2_weight,A3_weight)
   changedataset()
   changedataset_cat()
 }
@@ -221,6 +220,62 @@ document.getElementById('slider_behavior').oninput = function() {
   changedataset_cat()
 }
 
+function reset_weights() {
+A1_weight = 1.0
+A2_weight = 1.0
+A3_weight = 1.0
+B1_weight = 1.0
+B2_weight = 1.0
+B3_weight = 1.0
+C1_weight = 1.0
+C2_weight = 1.0
+C3_weight = 1.0
+D1_weight = 1.0
+D2_weight = 1.0
+D3_weight = 1.0
+
+document.getElementById('A1_weight_display').innerHTML = 1
+slider_A1.children[0].value =10
+document.getElementById('A2_weight_display').innerHTML = 1
+slider_A2.children[0].value =10
+document.getElementById('A3_weight_display').innerHTML = 1
+slider_A3.children[0].value =10
+document.getElementById('B1_weight_display').innerHTML = 1
+slider_B1.children[0].value =10
+document.getElementById('B2_weight_display').innerHTML = 1
+slider_B2.children[0].value =10
+document.getElementById('B3_weight_display').innerHTML = 1
+slider_B3.children[0].value =10
+document.getElementById('C1_weight_display').innerHTML = 1
+slider_C1.children[0].value =10
+document.getElementById('C2_weight_display').innerHTML = 1
+slider_C2.children[0].value =10
+document.getElementById('C3_weight_display').innerHTML = 1
+slider_C3.children[0].value =10
+document.getElementById('D1_weight_display').innerHTML = 1
+slider_D1.children[0].value =10
+document.getElementById('D2_weight_display').innerHTML = 1
+slider_D2.children[0].value =10
+document.getElementById('D3_weight_display').innerHTML = 1
+slider_D3.children[0].value =10
+
+costs_weight = 1.0
+physical_weight = 1.0
+multiactor_weight = 1.0
+behavior_weight = 1.0
+
+document.getElementById('costs_weight_display').innerHTML = 1
+slider_costs.children[0].value =10
+document.getElementById('multiactor_weight_display').innerHTML = 1
+slider_multiactor.children[0].value =10
+document.getElementById('physical_weight_display').innerHTML = 1
+slider_physical.children[0].value =10
+document.getElementById('behavior_weight_display').innerHTML = 1
+slider_.children[0].value =10
+
+changedataset()
+changedataset_cat()
+}
 
 function switch_graphs() {
   var switch_category = document.getElementById("barchart_category"); 
@@ -242,8 +297,8 @@ function switch_graphs() {
   }
   
   function switch_tooltip() {
-    var switch_tooltip_cat = document.getElementById("chartholder_cat"); 
-    var switch_tooltip_fac = document.getElementById("chartholder_fac");
+    var switch_tooltip_cat = document.getElementById("tooltipholder_cat"); 
+    var switch_tooltip_fac = document.getElementById("tooltipholder_fac");
     var switch_buttons_cat = document.getElementById("buttons_cat"); 
     var switch_buttons_fac = document.getElementById("buttons_fac");
     
@@ -282,16 +337,31 @@ function switch_graphs() {
       for (var j = 0; j < dataset.length; j++) { 
         if (dataset[j]['technology'] == technology) {
           return dataset[j][factor];
-          
         }
       }
     }
+
+    function get_barrier_of(technology) {
+      for (var l = 0; l < dataset.length; l++) { 
+        if (dataset[l]['technology'] == technology) {
+          return dataset[l]['barrier'];
+        }
+      }
+    }
+
+    function get_info_of(technology) {
+      for (var z = 0; z < dataset.length; z++) { 
+        if (dataset[z]['technology'] == technology) {
+          return dataset[z]['info'];
+        }
+      }
+    }
+
 
   function set_value_of(technology,factor,value) {
     for (var m = 0; m< dataset.length; m++) {
       if (dataset[m]['technology'] == technology && dataset[m][factor] !== value) {
         dataset[m][factor] = value
-        console.log(dataset)
       }
     }
   }
@@ -314,6 +384,15 @@ function switch_graphs() {
       .attr("id",'clicker')
       .attr('cursor','pointer')
       .attr('value',technology)
+      checkbox_holder.append("svg:embed")
+      .attr({
+        'xlink:href': 'infocircle.png', 
+        x: 0,
+        y: 0,
+        width: 10,
+        height: 10
+      })
+      .style('visibility','visible')
       checkbox_holder.selectAll('#clicker')
         .on('mouseover', function(d,i) {
           d3.select(this).transition()
@@ -331,7 +410,9 @@ function switch_graphs() {
             .style("cursor","default");
         })
         .on("click", function(){clickme(this.getAttribute('value'))})
+
       checkbox_holder.append("br")
+
     }
   }
  }
@@ -350,17 +431,10 @@ function clicklegend_fac(d) {
                       if (d== "D2"||d.name=="D2"){category ="Behavior", description="Frequency of opportunity (D2)"} else{
                         if (d== "D3"||d.name=="D3"){category ="Behavior", description="Requires change in behavior (D3)"} else{  
   }}}}}}}}}}}}
-console.log(description)}
+}
 
 function makecheckbox(){
-  checkbox_holder.append('br')
-  checkbox_holder.append("h6")
-    .text("Filter and Change Abatement Options")
-    .style('font-weight','bold')
-    .attr("align","center")
-  checkbox_holder.append('p')
-    .text("The abatement options can be filtered by checking the checkboxes and pressing the submit button. To change values of an abatement option, click this specific option and a menu will pop-up below the Y-curve.")
-  dataset.sort(function(a,b) { return d3.ascending(a.label, b.label)})
+   dataset.sort(function(a,b) { return +a.label - +b.label})
   dataset.forEach(function(d){
     set_checkbox_lines(d.technology,d.label,d.barrier,d.info)
 
@@ -411,8 +485,13 @@ isAllCheck = !isAllCheck;
 
 function clickme(d){
   var info = document.getElementById(""+d+ "");
+  abatement_option.attr("id",info.id)
   info.style.display = (
     info.style.display == "none" ? "block" : "none"); 
+  
+  var text_info = get_info_of(info.id)
+  var text_barrier = get_barrier_of(info.id)
+
 abatement_option.html("")
 abatement_option.append("h3")
   .text(info.id)
@@ -421,9 +500,15 @@ abatement_option.append("h3")
   .style("padding", "4px")
   .style("margin", "1px")
 
-abatement_option.attr("id",info.id)
+
 abatement_option.append("p")
-  .text();
+  .text(text_info);
+abatement_option.append("h6")
+  .text("Main barriers")
+  .style("font-weight","bold")
+abatement_option.append('p')
+  .text(text_barrier)
+
 {  
 var row1 = abatement_option.append("div")
   .attr("class", "row")
@@ -684,6 +769,7 @@ abatement_option.append("input")
   .attr('class', 'btn btn-secondary')
   .attr('value',"Submit new values")
   .on("click", submitvalues)
+  
 
 
 var list_of_dropdowns = document.getElementsByClassName("dropdown") 
@@ -706,6 +792,7 @@ function submitvalues() {
   set_value_of(technology_id,dropdown_id_new,selected_option)                   // de waarde van dropdown_id_new in technology_id wordt veranderd in selected_option                                                               
   }
   changedataset()
+  changedataset_cat()
 }
 
 
