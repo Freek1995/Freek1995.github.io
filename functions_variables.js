@@ -53,6 +53,7 @@ document.getElementById('slider_A1').oninput = function() {
   document.getElementById('costs_weight_display').innerHTML = parseFloat(Math.round(costs_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_A2').oninput = function() {
@@ -62,6 +63,7 @@ document.getElementById('slider_A2').oninput = function() {
   document.getElementById('costs_weight_display').innerHTML = parseFloat(Math.round(costs_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_A3').oninput = function() {
@@ -71,6 +73,7 @@ document.getElementById('slider_A3').oninput = function() {
   document.getElementById('costs_weight_display').innerHTML = parseFloat(Math.round(costs_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_B1').oninput = function() {
@@ -80,6 +83,7 @@ document.getElementById('slider_B1').oninput = function() {
   document.getElementById('multiactor_weight_display').innerHTML = parseFloat(Math.round(multiactor_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_B2').oninput = function() {
@@ -89,6 +93,7 @@ document.getElementById('slider_B2').oninput = function() {
   document.getElementById('multiactor_weight_display').innerHTML = parseFloat(Math.round(multiactor_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_B3').oninput = function() {
@@ -98,6 +103,7 @@ document.getElementById('slider_B3').oninput = function() {
   document.getElementById('multiactor_weight_display').innerHTML = parseFloat(Math.round(multiactor_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_C1').oninput = function() {
@@ -107,6 +113,7 @@ document.getElementById('slider_C1').oninput = function() {
   document.getElementById('physical_weight_display').innerHTML = parseFloat(Math.round(physical_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_C2').oninput = function() {
@@ -116,6 +123,7 @@ document.getElementById('slider_C2').oninput = function() {
   document.getElementById('physical_weight_display').innerHTML = parseFloat(Math.round(physical_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_C3').oninput = function() {
@@ -125,6 +133,7 @@ document.getElementById('slider_C3').oninput = function() {
   document.getElementById('physical_weight_display').innerHTML = parseFloat(Math.round(physical_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_D1').oninput = function() {
@@ -134,6 +143,7 @@ document.getElementById('slider_D1').oninput = function() {
   document.getElementById('behavior_weight_display').innerHTML = parseFloat(Math.round(behavior_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_D2').oninput = function() {
@@ -143,6 +153,7 @@ document.getElementById('slider_D2').oninput = function() {
   document.getElementById('behavior_weight_display').innerHTML = parseFloat(Math.round(behavior_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_D3').oninput = function() {
@@ -152,6 +163,7 @@ document.getElementById('slider_D3').oninput = function() {
   document.getElementById('behavior_weight_display').innerHTML = parseFloat(Math.round(behavior_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 // Update on input - CATEGORIES
@@ -170,6 +182,7 @@ document.getElementById('slider_costs').oninput = function() {
   document.getElementById('A3_weight_display').innerHTML = parseFloat(Math.round(A3_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_multiactor').oninput = function() {
@@ -186,6 +199,7 @@ document.getElementById('slider_multiactor').oninput = function() {
   document.getElementById('B3_weight_display').innerHTML = parseFloat(Math.round(B3_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_physical').oninput = function() {
@@ -202,6 +216,7 @@ document.getElementById('slider_physical').oninput = function() {
   document.getElementById('C3_weight_display').innerHTML = parseFloat(Math.round(C3_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 document.getElementById('slider_behavior').oninput = function() {
@@ -218,6 +233,7 @@ document.getElementById('slider_behavior').oninput = function() {
   document.getElementById('D3_weight_display').innerHTML = parseFloat(Math.round(D3_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 function reset_weights() {
@@ -271,10 +287,11 @@ slider_multiactor.children[0].value =10
 document.getElementById('physical_weight_display').innerHTML = 1
 slider_physical.children[0].value =10
 document.getElementById('behavior_weight_display').innerHTML = 1
-slider_.children[0].value =10
+slider_behavior.children[0].value =10
 
 changedataset()
 changedataset_cat()
+changedataset_macc()
 }
 
 function switch_graphs() {
@@ -323,7 +340,7 @@ function switch_graphs() {
           toggle_mac_div.style.display == "none" ? "block" : "none"); 
   }
 
-   function clicklegend_cat(d){
+   function clicklegend_cat(d,data){
     if(d==cat_data[0].NAME){ subcat1 = cat_data[0].SUBCAT1; subcat2 =cat_data[0].SUBCAT2; subcat3=cat_data[0].SUBCAT3}
     else {if (d==cat_data[1].NAME){ subcat1 = cat_data[1].SUBCAT1; subcat2 =cat_data[1].SUBCAT2; subcat3=cat_data[1].SUBCAT3}
       else {if(d==cat_data[2].NAME){ subcat1 = cat_data[2].SUBCAT1; subcat2 =cat_data[2].SUBCAT2; subcat3=cat_data[2].SUBCAT3}
@@ -341,6 +358,13 @@ function switch_graphs() {
       }
     }
 
+    function get_total_of(technology,data) {
+      for (var t=0; t< data.length; t++) {
+        if (data[t]['technology'] == technology) {
+          return data[t]['total'];
+        }
+      }
+    }
     function get_barrier_of(technology) {
       for (var l = 0; l < dataset.length; l++) { 
         if (dataset[l]['technology'] == technology) {
@@ -365,6 +389,7 @@ function switch_graphs() {
       }
     }
   }
+  
  function set_checkbox_lines(technology,label,barrier,info) {
   for (var n=0; n<checkboxdata.length; n++) {
     if(checkboxdata[n]['technology'] == technology) {
@@ -417,19 +442,21 @@ function switch_graphs() {
   }
  }
  
-function clicklegend_fac(d) {
-  if (d== "A1"||d.name=="A1"){category ="Cost and Financials", description="Investment cost required (A1)"} else{
-    if (d== "A2"||d.name=="A2"){category ="Cost and Financials", description="Expected pay-back time (A2)"} else{
-      if (d== "A3"||d.name=="A3"){category ="Cost and Financials", description="Difficulty in financing investment (A3)"} else{
-        if (d== "B1"||d.name=="B1"){category ="Multi-actor Complexity", description="Dependence on other actors (B1)"} else{
-          if (d== "B2"||d.name=="B2"){category ="Multi-actor Complexity", description="Diversity of other actors involved inc. conflicts (B2)"} else{
-            if (d== "B3"||d.name=="B3"){category ="Multi-actor Complexity", description="Division of roles and responsibilities unclear (B3)"} else{
-              if (d== "C1"||d.name=="C1"){category ="Physical Interdependencies", description="Physical embeddedness (C1)"} else{
-                if (d== "C2"||d.name=="C2"){category ="Physical Interdependencies", description="Disturbs regular operation (C2)"} else{
-                  if (d== "C3"||d.name=="C3"){category ="Physical Interdependencies", description="Technology uncertainty (C3)"} else{
-                    if (d== "D1"||d.name=="D1"){category ="Behavior", description="Absence of knowledge (D1)"} else{
-                      if (d== "D2"||d.name=="D2"){category ="Behavior", description="Frequency of opportunity (D2)"} else{
-                        if (d== "D3"||d.name=="D3"){category ="Behavior", description="Requires change in behavior (D3)"} else{  
+function clicklegend_fac(d,data) {
+  initial = get_value_of(d.mytech,d.name)
+  totalscore = get_total_of(d.mytech,data)
+  if (d== "A1"||d.name=="A1"){category ="Cost and Financials", description="Investment cost required (A1)", weight = A1_weight; if (initial == 0){score = 0, scoredescription ="Absent";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else { score = 2, scoredescription = "Large"}}} else{
+    if (d== "A2"||d.name=="A2"){category ="Cost and Financials", description="Expected pay-back time (A2)", weight = A2_weight; if (initial == 0){score = 0, scoredescription ="less than 5 years";} else { if (initial ==1){score = 1, scoredescription ="5-12 years";} else { score = 2, scoredescription = "more than 12 years"}}} else{
+      if (d== "A3"||d.name=="A3"){category ="Cost and Financials", description="Difficulty in financing investment (A3)", weight = A3_weight; if (initial == 0){score = 0, scoredescription ="Low";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "High"}}} else{
+        if (d== "B1"||d.name=="B1"){category ="Multi-actor Complexity", description="Dependence on other actors (B1)", weight = B1_weight; if (initial == 0){score = 0, scoredescription ="No";} else { if (initial ==1){score = 1, scoredescription ="Little";} else  {score = 2, scoredescription = "Much"}}} else{
+          if (d== "B2"||d.name=="B2"){category ="Multi-actor Complexity", description="Diversity of other actors involved inc. conflicts (B2)", weight = B2_weight; if (initial == 0){score = 0, scoredescription ="Low";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "Large"}}} else{
+            if (d== "B3"||d.name=="B3"){category ="Multi-actor Complexity", description="Division of roles and responsibilities unclear (B3)", weight = B3_weight; if (initial == 0){score = 0, scoredescription ="Clear";} else { if (initial ==1){score = 1, scoredescription ="Slightly";} else {score = 2, scoredescription = "Unclear"}}} else{
+              if (d== "C1"||d.name=="C1"){category ="Physical Interdependencies", description="Physical embeddedness (C1)", weight = C1_weight; if (initial == 0){score = 0, scoredescription ="No";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "High"}}} else{
+                if (d== "C2"||d.name=="C2"){category ="Physical Interdependencies", description="Disturbs regular operation (C2)", weight = C2_weight; if (initial == 0){score = 0, scoredescription ="No";} else { if (initial ==1){score = 1, scoredescription ="Slightly";} else {score = 2, scoredescription = "Strong"}}} else{
+                  if (d== "C3"||d.name=="C3"){category ="Physical Interdependencies", description="Technology uncertainty (C3)", weight = C3_weight; if (initial == 0){score = 0, scoredescription ="Fully proven";} else { if (initial ==1){score = 1, scoredescription ="Small";} else {score = 2, scoredescription = "Large"}}} else{
+                    if (d== "D1"||d.name=="D1"){category ="Behavior", description="Absence of knowledge (D1)", weight = D1_weight; if (initial == 0){score = 0, scoredescription ="High Knowledge";} else { if (initial ==1){score = 1, scoredescription ="Low Knowledge";} else {score = 2, scoredescription = "No Knowledge"}}} else{
+                      if (d== "D2"||d.name=="D2"){category ="Behavior", description="Frequency of opportunity (D2)", weight = D2_weight; if (initial == 0){score = 0, scoredescription ="Often";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "Rarely"}}} else{
+                        if (d== "D3"||d.name=="D3"){category ="Behavior", description="Requires change in behavior (D3)", weight = D3_weight; if (initial == 0){score = 0, scoredescription ="None";} else { if (initial ==1){score = 1, scoredescription ="Slight";} else {score = 2, scoredescription = "Severe"}}} else{  
   }}}}}}}}}}}}
 }
 
@@ -482,6 +509,16 @@ function togglecheckboxes(cn){
 }   
 isAllCheck = !isAllCheck;   
 }
+
+// function make_x_gridlines() {
+//   return d3.xAxis
+//   .ticks(5)
+// }
+
+// function make_y_gridlines(){
+//   return d3.yAxis
+//   .ticks(5)
+// }
 
 function clickme(d){
   var info = document.getElementById(""+d+ "");
@@ -793,6 +830,7 @@ function submitvalues() {
   }
   changedataset()
   changedataset_cat()
+  changedataset_macc()
 }
 
 

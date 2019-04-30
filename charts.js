@@ -43,7 +43,7 @@ queue()
 
 
 function parsedataset(error, data) {
-  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "technology" && key !=="label" && key !=="info" && key !=="barrier"; }));
+  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "technology" && key !=="label" && key !=="info" && key !=="barrier" && key !=="maccvalues" && key !=="potential"; }));
 
   data.forEach(function(d) {
 // console.log(color.domain())
@@ -54,8 +54,6 @@ function parsedataset(error, data) {
     d['physical'] = parseFloat(d['C1'])+parseFloat(d['C2'])+parseFloat(d['C3'])
     d['behavior'] = parseFloat(d['D1'])+parseFloat(d['D2'])+parseFloat(d['D3'])
 
-    // console.log(d)
-    
     d.factors = color.domain().map(function(name) { return {mytech:mytech, name: name, y0: y0, y1: y0 += +d[name]}; });
     d.total = d.factors[d.factors.length - 1].y1;
     dataset = data
@@ -133,6 +131,21 @@ function makeBarChart(data) {
       .attr("dy", ".71em")
       .style("text-anchor", "end");
 
+  // svg.append("g")
+  //     .attr("class","grid")
+  //     .attr("transform","translate(0,"+height +")")
+  //     .call(make_y_gridlines()
+  //         .tickSize(-height)
+  //         .tickFormat("")
+  //     )
+  
+  // svg.append("g")
+  //     .attr("class","grid")
+  //     .call(make_x_gridlines()
+  //         .tickSize(-width)
+  //         .tickFormat("")
+  //     )
+
   var technology = svg.selectAll(".technology")
       .data(data)
     .enter().append("g")
@@ -152,11 +165,11 @@ function makeBarChart(data) {
       .transition();
 
 var mouseover_fac = function (d){
-  clicklegend_fac(d)
-  
+  clicklegend_fac(d,data)
+
   var delta = d.y1- d.y0;
-  var info_fac =   "<b>" + d.mytech + "</b>" + "<br/>" +
-                  "<span style='color:red"  + ";'>" +description+ " : " + "</span>" + delta;
+  var info_fac =   "<b>" + d.mytech + "</b>" + " (total: " + totalscore +")" + "<br/>" +
+                  "<span style='color:red"  + ";'>" +description+ " : " + "</span>" + scoredescription + " (" + score + ") *"+weight;
 
     div_tooltip_fac.html(info_fac)
         .style("left", (margin.left+20+"px") )
@@ -249,7 +262,7 @@ var  mouseout_legend_fac = function(d) {
       })
       .on("mouseover", function(d) {
           d3.select(this).style("cursor", "help"); 
-        clicklegend_fac(d);
+        clicklegend_fac(d,data);
         mouseover_legend_fac(d)})
       .on("mouseout", function(d) {
           d3.select(this).style("cursor", "default"); 
@@ -267,7 +280,7 @@ var  mouseout_legend_fac = function(d) {
       .text(function(d) { return d;})
       .on("mouseover", function(d) {
           d3.select(this).style("cursor", "help"); 
-        clicklegend_fac(d);
+        clicklegend_fac(d,data);
         mouseover_legend_fac(d)})
       .on("mouseout", function(d) {
           d3.select(this).style("cursor", "default"); 
@@ -325,7 +338,7 @@ function parsedataset_cat(error, data) {
   }
   )
 
-  color_cat.domain(d3.keys(data[0]).filter(function(key) { return key !==  "technology" && key !== "label" && key !=="barrier" && key !=="info" && key !=="A1" && key !=="A2" && key !=="A3" && key !=="B1" && key !=="B2" && key !=="B3" && key !=="C1" && key !=="C2" && key !=="C3" && key !=="D1" && key !=="D2" && key !=="D3" ; }));
+  color_cat.domain(d3.keys(data[0]).filter(function(key) { return key !==  "technology" && key !== "label" && key !=="barrier" && key !=="info" && key !=="maccvalues" && key !=="potential" && key !=="A1" && key !=="A2" && key !=="A3" && key !=="B1" && key !=="B2" && key !=="B3" && key !=="C1" && key !=="C2" && key !=="C3" && key !=="D1" && key !=="D2" && key !=="D3" ; }));
 
   data.forEach(function(d) {
     var mytech = d.technology; //add to stock code
@@ -435,11 +448,10 @@ function makeBarChart_cat(data) {
 // FUNCTIE HIERONDER LAAT ZIEN WAT DE WAARDE IS PER RECHTHOEKJE ALS JE ER MET JE MUIS OVERHEEN GAAT
 
 var mouseover_cat = function (d){
+  totalscore = parseFloat(Math.round((get_total_of(d.mytech,data)) * 100) / 100).toFixed(1)
   
-  var delta = d.y1- d.y0;
-
-  // var sum = d['Cost and Financials'] + d['Physical Interdependencies'] + d['Multi-actor complexity'] + d['Behavior']
-  var info_cat =   "<b>" + d.mytech + "</b>" + "<br/>" + 
+  var delta = parseFloat(Math.round((d.y1- d.y0) * 100) / 100).toFixed(1);
+  var info_cat =   "<b>" + d.mytech + "</b>" + " (total: " + totalscore + ")" +"<br/>" + 
                   "<span style='color:red"  + ";'>" +d.name + " : " + "</span>" + delta;
 
     div_tooltip_cat.html(info_cat)
@@ -581,9 +593,9 @@ var xAxisMacc = d3.svg.axis()
 var yAxisMAcc = d3.svg.axis()
 .scale(yScale)
 .orient('left');
-d3.csv('YFacMacc.csv', function loadCallback(error, data) {
+d3.tsv('factor_data.txt', function parsedataset_macc(error, data) {
     data.forEach(function(d) { // convert strings to numbers
-        d.yvalues = +d.yvalues;
+        d.totalmacc = parseFloat(d['A1'])+parseFloat(d['A2'])+parseFloat(d['A3'])+parseFloat(d['B1'])+parseFloat(d['B2'])+parseFloat(d['B3'])+parseFloat(d['C1'])+parseFloat(d['C2'])+parseFloat(d['C3'])+parseFloat(d['D1'])+parseFloat(d['D2'])+parseFloat(d['D3']);
         d.maccvalues = +d.maccvalues;
         dataset_macc = data;
         checkboxdata_macc = data;
@@ -593,23 +605,42 @@ d3.csv('YFacMacc.csv', function loadCallback(error, data) {
 });
 
 function changedataset_macc() {
-    new_data2 = JSON.parse(JSON.stringify(dataset_macc));
+    new_data2 = JSON.parse(JSON.stringify(dataset));
+
+    new_data2.forEach(function(d){
+    d['A1'] = d['A1'] * A1_weight
+    d['A2'] = d['A2'] * A2_weight
+    d['A3'] = d['A3'] * A3_weight
+    d['B1'] = d['B1'] * B1_weight
+    d['B2'] = d['B2'] * B2_weight
+    d['B3'] = d['B3'] * B3_weight
+    d['C1'] = d['C1'] * C1_weight
+    d['C2'] = d['C2'] * C2_weight
+    d['C3'] = d['C3'] * C3_weight
+    d['D1'] = d['D1'] * D1_weight
+    d['D2'] = d['D2'] * D2_weight
+    d['D3'] = d['D3'] * D3_weight
+    d.maccvalues = + d.maccvalues;
+
+    d.totalmacc = parseFloat(d['A1'])+parseFloat(d['A2'])+parseFloat(d['A3'])+parseFloat(d['B1'])+parseFloat(d['B2'])+parseFloat(d['B3'])+parseFloat(d['C1'])+parseFloat(d['C2'])+parseFloat(d['C3'])+parseFloat(d['D1'])+parseFloat(d['D2'])+parseFloat(d['D3'])
+    })
     makescatterplot(new_data2)
 }
 
-var makescatterplot = function(data) {
+makescatterplot = function(data) {
     canvas.selectAll('g').remove()
     canvas.selectAll('.dot').remove()
     canvas.selectAll('.labels').remove()
     canvas.selectAll('.tick').remove()
     canvas.selectAll('div').remove()
   // Common pattern for defining vis size and margins
-  yScale.domain([ d3.min(data, function(d) { return d.yvalues; }) - 1,
-    d3.max(data, function(d) { return d.yvalues; }) + 1 ])
+  yScale.domain([ d3.min(data, function(d) { return d.totalmacc; }) - 1,
+    d3.max(data, function(d) { return d.totalmacc; }) + 1 ])
 
   xScale.domain([ d3.min(data, function(d) { return d.maccvalues; }) - 1,
     d3.max(data, function(d) { return d.maccvalues; }) + 1 ])
 
+    console.log(data)
   // Add x-axis to the canvas
   canvas.append("g")
       .attr("class", "axis")
@@ -620,9 +651,8 @@ var makescatterplot = function(data) {
       .attr("x", widthmacc) // x-offset from the xAxis, move label all the way to the right
       .attr("y", -6)    // y-offset from the xAxis, moves text UPWARD!
       .style("text-anchor", "end") // right-justify text
-      .text("Abatement cost [€/tCO2eq]");
+      .text("Abatement cost [€/tCO2eq]"); 
 
-      
 
   // Add y-axis to the canvas   
   canvas.append("g")
@@ -648,14 +678,15 @@ var makescatterplot = function(data) {
   // tooltip mouseover event handler
   var tipMouseover = function(d) {
     d3.select(this).style("cursor", "help"); 
-      var infoMACC  = "<span style='color:red;font-size:16px"  + ";'>" +d.numbers + " : " + d.technology + "</span><br/>" +
-                      "<span style='font-size:16px" + ";'>" + "Y-value: " + "<b>" + d.yvalues +"</b>"+ "</span><br/>" + 
+      var infoMACC  = "<span style='color:red;font-size:16px"  + ";'>" +d.label + " : " + d.technology + "</span><br/>" +
+                      "<span style='font-size:16px" + ";'>" + "Y-value: " + "<b>" + d.totalmacc +"</b>"+ "</span><br/>" + 
                       "<span style='font-size:16px" + ";'>" + "Abatement costs: " + "<b>" + d.maccvalues + "</b>" + " €/tCO" + "<sub>2</sub>"+ "e" + "</span><br>" +
                       "<span style='font-size:16px" + ";'>" + "Abatement potential: " + "<b>" + d.potential + "</b>"+ " MtCO" + "<sub>2</sub>"+ "e by 2030" + "</span>";
 1
       tooltip.html(infoMACC)
           .style("top", 30+"px")
           .style("left",50+"px")
+          .style("background-color","#FAFAFA")
         .transition()
           .duration(200) // ms
           .style("opacity", .9) // started as 0!   
@@ -667,7 +698,7 @@ var makescatterplot = function(data) {
   var tipMouseout = function(d) {
       tooltip.transition()
           .duration(300) // ms
-          .style("opacity", 0); // don't care about position!
+          .style("opacity", 0) // don't care about position!
   };
 
   // Add data points!
@@ -677,7 +708,7 @@ var makescatterplot = function(data) {
     .attr("class", "dot")
     .attr("r", function(d) {return ( d.potential/100)}  ) // radius size, could map to another data dimension
     .attr("cx", function(d) { return xScale( d.maccvalues ); })     // x position
-    .attr("cy", function(d) { return yScale( d.yvalues ); })  // y position
+    .attr("cy", function(d) { return yScale( d.totalmacc ); })  // y position
     .style("fill", "#9fbfdf")
     .on("mouseover", tipMouseover)
     .on("mouseout", tipMouseout)
@@ -687,12 +718,12 @@ canvas.selectAll("labels")
 .enter().append("text")
     .attr("class","labels")
     .attr("x", function(d) { return xScale(d.maccvalues); })
-    .attr("y", function(d) { return yScale(d.yvalues); })
+    .attr("y", function(d) { return yScale(d.totalmacc); })
     .style("fill", "red")
     .style("font-size","12px")
     .style("font-weight","bold")
     .on("mouseover", tipMouseover)
     .on("mouseout", tipMouseout)
-    .text(function(d){return d.numbers;});
+    .text(function(d){return d.label;});
 };
 
