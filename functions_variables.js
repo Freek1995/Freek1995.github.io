@@ -383,15 +383,21 @@ function switch_graphs() {
       }  
   
   function togglemaccinfo() {
-      var toggle_mac_div = document.getElementById("maccinfo");
-      toggle_mac_div.style.display = (
-          toggle_mac_div.style.display == "none" ? "block" : "none"); 
+      var toggle_macc_div = document.getElementById("maccinfo");
+      toggle_macc_div.style.display = (
+          toggle_macc_div.style.display == "none" ? "block" : "none"); 
   }
 
+  function toggleweightinfo() {
+    var toggle_weight_div = document.getElementById("weightinfo");
+    toggle_weight_div.style.display = (
+        toggle_weight_div.style.display == "none" ? "block" : "none"); 
+}
+
   function togglecurveinfo() {
-    var toggle_mac_div = document.getElementById("ycurveinfo");
-    toggle_mac_div.style.display = (
-        toggle_mac_div.style.display == "none" ? "block" : "none"); 
+    var toggle_curve_div = document.getElementById("ycurveinfo");
+    toggle_curve_div.style.display = (
+        toggle_curve_div.style.display == "none" ? "block" : "none"); 
 }
 
    function clicklegend_cat(d,data){
@@ -575,21 +581,30 @@ isAllCheck = !isAllCheck;
 // }
 
 function clickme(d){
+  showoptions()
   var info = document.getElementById(""+d+ "");
   abatement_option.attr("id",info.id)
-  info.style.display = (
-    info.style.display == "none" ? "block" : "none"); 
   
   var text_info = get_info_of(info.id)
   var text_barrier = get_barrier_of(info.id)
 
 abatement_option.html("")
-abatement_option.append("h3")
+abatement_heading = abatement_option.append("h3")
   .text(info.id)
   .style("background-color", "#d3d3d3")
   .style("border-radius", "5px")
   .style("padding", "4px")
   .style("margin", "1px")
+
+abatement_heading.append("input")
+  .style("margin-right", "15px")
+  .attr("type","button")
+  .style('height','35px')
+  .attr('class', 'btn btn-secondary')
+  .style('float', 'right')
+  .attr('value',"Collapse")
+  .attr('text-anchor','end')
+  .on("click", hideoptions)
 
 
 abatement_option.append("p")
@@ -859,10 +874,10 @@ abatement_option.append("input")
   .attr("type","button")
   .attr('class', 'btn btn-secondary')
   .attr('value',"Submit new values")
+  .style('margin','5px')
   .on("click", submitvalues)
+
   
-
-
 var list_of_dropdowns = document.getElementsByClassName("dropdown") 
 
 for (var i = 0; i < list_of_dropdowns.length; i++) {                    //loopt door de dropdown list
@@ -885,6 +900,16 @@ function submitvalues() {
   changedataset()
   changedataset_cat()
   changedataset_macc()
+}
+
+function hideoptions() {
+  var toggle_options_div = document.getElementById("options_holder");
+  toggle_options_div.style.display = "none"
+}
+
+function showoptions() {
+  var toggle_options_div = document.getElementById("options_holder");
+  toggle_options_div.style.display = "block"
 }
 
 

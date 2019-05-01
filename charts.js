@@ -218,9 +218,6 @@ d3.selectAll("#xaxis")
         .style("cursor","default");
     });
 
-  d3.selectAll(".fa-info-circle")
-    .on('click',clickme)
-
 // get values from dropdown list
 var mouseover_legend_fac = function (d){
   var info_legend_fac = "\xa0" + "<b>" + category + "</b>" + "\xa0" + "<br>" +
