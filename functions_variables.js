@@ -170,12 +170,24 @@ document.getElementById('slider_D3').oninput = function() {
 
 document.getElementById('slider_costs').oninput = function() {
   costs_weight = document.getElementById('costs_weight').value/10
-  A1_initial_weight = A1_weight
-  A2_initial_weight = A2_weight
-  A3_initial_weight = A3_weight
-  A1_weight = ((A1_initial_weight/(A1_initial_weight+A2_initial_weight+A3_initial_weight))*3*costs_weight)
-  A2_weight = ((A2_initial_weight/(A1_initial_weight+A2_initial_weight+A3_initial_weight))*3*costs_weight)
-  A3_weight = ((A3_initial_weight/(A1_initial_weight+A2_initial_weight+A3_initial_weight))*3*costs_weight)
+  // A1_initial_weight = A1_weight
+  // A2_initial_weight = A2_weight
+  // A3_initial_weight = A3_weight
+  // A1_weight = ((A1_initial_weight/(A1_initial_weight+A2_initial_weight+A3_initial_weight))*3*costs_weight)
+  // A2_weight = ((A2_initial_weight/(A1_initial_weight+A2_initial_weight+A3_initial_weight))*3*costs_weight)
+  // A3_weight = ((A3_initial_weight/(A1_initial_weight+A2_initial_weight+A3_initial_weight))*3*costs_weight)
+  A1_weight = costs_weight
+  A2_weight = costs_weight
+  A3_weight = costs_weight
+  B1_weight = multiactor_weight
+  B2_weight = multiactor_weight
+  B3_weight = multiactor_weight
+  C1_weight = physical_weight
+  C2_weight = physical_weight
+  C3_weight = physical_weight
+  D1_weight = behavior_weight
+  D2_weight = behavior_weight
+  D3_weight = behavior_weight
   document.getElementById('costs_weight_display').innerHTML = costs_weight
   document.getElementById('A1_weight_display').innerHTML = parseFloat(Math.round(A1_weight * 100) / 100).toFixed(1);
   document.getElementById('A2_weight_display').innerHTML = parseFloat(Math.round(A2_weight * 100) / 100).toFixed(1);
@@ -187,12 +199,24 @@ document.getElementById('slider_costs').oninput = function() {
 
 document.getElementById('slider_multiactor').oninput = function() {
   multiactor_weight = document.getElementById('multiactor_weight').value/10
-  B1_initial_weight = B1_weight
-  B2_initial_weight = B2_weight
-  B3_initial_weight = B3_weight
-  B1_weight = ((B1_initial_weight/(B1_initial_weight+B2_initial_weight+B3_initial_weight))*3*multiactor_weight)
-  B2_weight = ((B2_initial_weight/(B1_initial_weight+B2_initial_weight+B3_initial_weight))*3*multiactor_weight)
-  B3_weight = ((B3_initial_weight/(B1_initial_weight+B2_initial_weight+B3_initial_weight))*3*multiactor_weight)
+  // B1_initial_weight = B1_weight
+  // B2_initial_weight = B2_weight
+  // B3_initial_weight = B3_weight
+  // B1_weight = ((B1_initial_weight/(B1_initial_weight+B2_initial_weight+B3_initial_weight))*3*multiactor_weight)
+  // B2_weight = ((B2_initial_weight/(B1_initial_weight+B2_initial_weight+B3_initial_weight))*3*multiactor_weight)
+  // B3_weight = ((B3_initial_weight/(B1_initial_weight+B2_initial_weight+B3_initial_weight))*3*multiactor_weight)
+  A1_weight = costs_weight
+  A2_weight = costs_weight
+  A3_weight = costs_weight
+  B1_weight = multiactor_weight
+  B2_weight = multiactor_weight
+  B3_weight = multiactor_weight
+  C1_weight = physical_weight
+  C2_weight = physical_weight
+  C3_weight = physical_weight
+  D1_weight = behavior_weight
+  D2_weight = behavior_weight
+  D3_weight = behavior_weight
   document.getElementById('multiactor_weight_display').innerHTML = multiactor_weight
   document.getElementById('B1_weight_display').innerHTML = parseFloat(Math.round(B1_weight * 100) / 100).toFixed(1);
   document.getElementById('B2_weight_display').innerHTML = parseFloat(Math.round(B2_weight * 100) / 100).toFixed(1);
@@ -204,12 +228,24 @@ document.getElementById('slider_multiactor').oninput = function() {
 
 document.getElementById('slider_physical').oninput = function() {
   physical_weight = document.getElementById('physical_weight').value/10
-  C1_initial_weight = C1_weight
-  C2_initial_weight = C2_weight
-  C3_initial_weight = C3_weight
-  C1_weight = ((C1_initial_weight/(C1_initial_weight+C2_initial_weight+C3_initial_weight))*3*physical_weight)
-  C2_weight = ((C2_initial_weight/(C1_initial_weight+C2_initial_weight+C3_initial_weight))*3*physical_weight)
-  C3_weight = ((C3_initial_weight/(C1_initial_weight+C2_initial_weight+C3_initial_weight))*3*physical_weight)
+  // C1_initial_weight = C1_weight
+  // C2_initial_weight = C2_weight
+  // C3_initial_weight = C3_weight
+  // C1_weight = ((C1_initial_weight/(C1_initial_weight+C2_initial_weight+C3_initial_weight))*3*physical_weight)
+  // C2_weight = ((C2_initial_weight/(C1_initial_weight+C2_initial_weight+C3_initial_weight))*3*physical_weight)
+  // C3_weight = ((C3_initial_weight/(C1_initial_weight+C2_initial_weight+C3_initial_weight))*3*physical_weight)
+  A1_weight = costs_weight
+  A2_weight = costs_weight
+  A3_weight = costs_weight
+  B1_weight = multiactor_weight
+  B2_weight = multiactor_weight
+  B3_weight = multiactor_weight
+  C1_weight = physical_weight
+  C2_weight = physical_weight
+  C3_weight = physical_weight
+  D1_weight = behavior_weight
+  D2_weight = behavior_weight
+  D3_weight = behavior_weight
   document.getElementById('physical_weight_display').innerHTML = physical_weight
   document.getElementById('C1_weight_display').innerHTML = parseFloat(Math.round(C1_weight * 100) / 100).toFixed(1);
   document.getElementById('C2_weight_display').innerHTML = parseFloat(Math.round(C2_weight * 100) / 100).toFixed(1);
@@ -221,12 +257,24 @@ document.getElementById('slider_physical').oninput = function() {
 
 document.getElementById('slider_behavior').oninput = function() {
   behavior_weight = document.getElementById('behavior_weight').value/10
-  D1_initial_weight = D1_weight
-  D2_initial_weight = D2_weight
-  D3_initial_weight = D3_weight
-  D1_weight = ((D1_initial_weight/(D1_initial_weight+D2_initial_weight+D3_initial_weight))*3*behavior_weight)
-  D2_weight = ((D2_initial_weight/(D1_initial_weight+D2_initial_weight+D3_initial_weight))*3*behavior_weight)
-  D3_weight = ((D3_initial_weight/(D1_initial_weight+D2_initial_weight+D3_initial_weight))*3*behavior_weight)
+  // D1_initial_weight = D1_weight
+  // D2_initial_weight = D2_weight
+  // D3_initial_weight = D3_weight
+  A1_weight = costs_weight
+  A2_weight = costs_weight
+  A3_weight = costs_weight
+  B1_weight = multiactor_weight
+  B2_weight = multiactor_weight
+  B3_weight = multiactor_weight
+  C1_weight = physical_weight
+  C2_weight = physical_weight
+  C3_weight = physical_weight
+  D1_weight = behavior_weight
+  D2_weight = behavior_weight
+  D3_weight = behavior_weight
+  // D1_weight = ((D1_initial_weight/(D1_initial_weight+D2_initial_weight+D3_initial_weight))*3*behavior_weight)
+  // D2_weight = ((D2_initial_weight/(D1_initial_weight+D2_initial_weight+D3_initial_weight))*3*behavior_weight)
+  // D3_weight = ((D3_initial_weight/(D1_initial_weight+D2_initial_weight+D3_initial_weight))*3*behavior_weight)
   document.getElementById('behavior_weight_display').innerHTML = behavior_weight
   document.getElementById('D1_weight_display').innerHTML = parseFloat(Math.round(D1_weight * 100) / 100).toFixed(1);
   document.getElementById('D2_weight_display').innerHTML = parseFloat(Math.round(D2_weight * 100) / 100).toFixed(1);
@@ -339,6 +387,12 @@ function switch_graphs() {
       toggle_mac_div.style.display = (
           toggle_mac_div.style.display == "none" ? "block" : "none"); 
   }
+
+  function togglecurveinfo() {
+    var toggle_mac_div = document.getElementById("ycurveinfo");
+    toggle_mac_div.style.display = (
+        toggle_mac_div.style.display == "none" ? "block" : "none"); 
+}
 
    function clicklegend_cat(d,data){
     if(d==cat_data[0].NAME){ subcat1 = cat_data[0].SUBCAT1; subcat2 =cat_data[0].SUBCAT2; subcat3=cat_data[0].SUBCAT3}

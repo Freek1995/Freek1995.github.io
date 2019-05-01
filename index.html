@@ -25,62 +25,11 @@
 <body>
 
 <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div><br><br><br><br></div>
-            <div id="dismiss">
-                <i class="fas fa-arrow-left"></i>
-            </div>
-
-            <div class="sidebar-header">
-               <h3>Y-factor</h3>
-            </div>
-
-            <ul class="list-unstyled components">
-
-                <li>
-                    <a href="#fixedpadding">
-                        <i class="fas fa-home"></i>
-                        Home   
-                    </a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="fas fa-copy"></i>
-                        Pages
-                    </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#infocurve"> Y-Curve</a>
-                        </li>
-                        <li>
-                            <a href="#scatterplot"> Y-factor MACC Crossover</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#">
-                    <i class="fas fa-paper-plane"></i>    
-                        Contact
-                    </a>
-                </li>
-            </ul>
-
-        </nav>
-
         <!-- Page Content  -->
     <div id="content">
             <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info" style= "color:#00202a; background:#e54e4e; border:#e86464; box-shadow:none">
-                        <i class="fas fa-align-left"></i>
-                        <span>Menu</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
@@ -100,17 +49,19 @@
         <div id="fixedpadding">
             <div class="col-12">
             <h1>The Y-factor</h1>
-            <p>This text box will be used to show general information on the Y-factor, regarding its background, the way it is set up, why it is set up this way etc. </p>
+            <p>This webpage contains a tool to facilitate policymakers on climate policy to gain insight into the relative complexity of implementing certain carbon abatement options. This tool is called the Y-factor and was first introduced in 2016 as a complementary approach to marginal abatement cost curves (MACC) that are commonly used to compare different carbon abatement options on marginal costs and abatement potential. The Y-factor incorporates more complexity than financial complexity alone.  Multiple carbon abatement options are scored on 12 factors that are spread across 4 categories: Costs and Financials, Multi-actor Complexity, Physical Interdependencies and Behavior. This webpage shows the Y-factor in a bar chart that can be portrayed in a 12-factor level detail or a 4-category level detail. More down on the page, a crossover between the Y-factor and the McKinsey is shown. The top menu can be used to navigate through the different parts of the page. </p>
         </div>
-        <div class ="line"></div>
-        <div class="col-12" id="infocurve">
-            <h3>Y-Factor Curve</h3>
-            <p>This page shows the reference curve of the Y-factor. The right column shows 24 different carbon abatement options. If you wish to show only a limited selection of these carbon abatement options, switch off the options you wish to exclude and press the submit button. </p>
-            <p>On top of the graphs there is a button called 'Toggle level of detail'. When clicking this button, the level of detail of the Y-factor curve will change, from 4 to 12 categories. How these categories have been specified can be found at the homepage </p>
-        </div>    
             <div class="line" id="ycurve"></div>
             <div class="row">
                     <div class="col-9">
+                            <div id="infocurve">
+                                <h3 style="background-color :#d3d3d3;border-radius:5px; padding:4px; margin:1px">Y-Factor Curve <i title="Show or hide info"class="fas fa-info-circle fa-sm tooltip_html" onmouseover="" align="bottom" style="cursor: pointer;color:grey;size:10px" onclick="togglecurveinfo()"></i></h3>
+                                <div id="ycurveinfo" style="display:none">
+                                <p>This page shows the reference curve of the Y-factor. The right column shows 24 different carbon abatement options. If you wish to show only a limited selection of these carbon abatement options, switch off the options you wish to exclude and press the submit button. Furthermore, different weights can be attached to the different components of the Y-factor, this can be done below the graph. In order to change the values of a certain abatement option, click this option on the menu on the right or on the X-Axis. </p>
+                                <p>On top of the graphs there is a button called 'Toggle level of detail'. When clicking this button, the level of detail of the Y-factor curve will change, from 4 to 12 categories. The other button resets the weights that can be changed below the graph </p>
+                            </div>
+                            </div>  
+                    <br>
                     <div class="ycurvebox" style="border:1px solid black">
                             <div class="col-12"  >                     
                                     <div class = "row">
@@ -273,7 +224,7 @@
                     <div class="row">
                         <div class="col-12"  id="options_holder" style="margin-bottom: 10px"></div>
                         <div class="col-12" name="Y-factor MACC">
-                            <h3 style="background-color :#d3d3d3;border-radius:5px; padding:4px; margin:1px"> Y-Factor MACC crossover <i class="fas fa-info-circle fa-sm" onmouseover="" align="bottom" style="cursor: pointer;color:grey;size:10px" onclick="togglemaccinfo()"></i></h3>
+                            <h3 style="background-color :#d3d3d3;border-radius:5px; padding:4px; margin:1px"> Y-Factor MACC crossover <i title="Show or hide info"class="fas fa-info-circle fa-sm" onmouseover="" align="bottom" style="cursor: pointer;color:grey;size:10px" onclick="togglemaccinfo()"></i></h3>
                         </div>
                         <div class="col-12"  id="maccinfo" style="display:none">
                             <p>The scatterplot below shows a crossover between the McKinsey MACC curve and the Y-factor. The X-axis shows the marginal abatement costs (from the McKinsey Curve) and the Y-axis shows the Y-values. The size of the dots is determined by the abatement potential of the different abatement options. </p>
