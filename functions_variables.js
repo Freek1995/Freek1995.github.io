@@ -467,6 +467,7 @@ function switch_graphs() {
       .text(" " + technology + " ")
       .style('font-size','15px')
       .attr("id",'clicker')
+      .attr("href",'options_holder')
       .attr('cursor','pointer')
       .attr('value',technology)
       checkbox_holder.append("svg:embed")
@@ -495,7 +496,6 @@ function switch_graphs() {
             .style("cursor","default");
         })
         .on("click", function(){clickme(this.getAttribute('value'))})
-
       checkbox_holder.append("br")
 
     }
@@ -583,6 +583,7 @@ isAllCheck = !isAllCheck;
 function clickme(d){
   showoptions()
   var info = document.getElementById(""+d+ "");
+  console.log(d)
   abatement_option.attr("id",info.id)
   
   var text_info = get_info_of(info.id)

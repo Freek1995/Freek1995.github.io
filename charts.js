@@ -563,7 +563,7 @@ var  mouseout_legend_fac = function(d) {
 };
 
 var marginmacc = { topmacc: 20, rightmacc: 20, bottommacc: 30, leftmacc: 40 },
-widthmacc  = 960 - marginmacc.leftmacc - marginmacc.rightmacc,
+widthmacc  = 1070 - marginmacc.leftmacc - marginmacc.rightmacc,
 heightmacc = 550 - marginmacc.topmacc - marginmacc.bottommacc;
 
 // Add the visualization svg canvas to the vis-container <div>
@@ -696,6 +696,7 @@ makescatterplot = function(data) {
       tooltip.transition()
           .duration(300) // ms
           .style("opacity", 0) // don't care about position!
+      tooltip.html("")
   };
 
   // Add data points!
