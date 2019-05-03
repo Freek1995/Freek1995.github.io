@@ -1,7 +1,7 @@
 //setting the axis and rectangles for bar chart 12-factor scale
 
 var margin = {top: 50, right: 30, bottom: 240, left: 170},
-    width = 880 - margin.left - margin.right,
+    width = 1070 - margin.left - margin.right,
     height = 450 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal()
