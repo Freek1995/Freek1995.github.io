@@ -287,7 +287,7 @@ var  mouseout_legend_fac = function(d) {
 
 // setting the 4-cateogory bar chart axis 
 var margin_cat = {top_cat: 50, right_cat: 30, bottom_cat: 240, left_cat: 170},
-    width_cat = 880 - margin_cat.left_cat - margin_cat.right_cat,
+    width_cat = 1070 - margin_cat.left_cat - margin_cat.right_cat,
     height_cat = 450 - margin_cat.top_cat - margin_cat.bottom_cat;
 
 var x_cat= d3.scale.ordinal()
@@ -563,7 +563,7 @@ var  mouseout_legend_fac = function(d) {
 };
 
 var marginmacc = { topmacc: 20, rightmacc: 20, bottommacc: 30, leftmacc: 40 },
-widthmacc  = 880 - marginmacc.leftmacc - marginmacc.rightmacc,
+widthmacc  = 1070 - marginmacc.leftmacc - marginmacc.rightmacc,
 heightmacc = 550 - marginmacc.topmacc - marginmacc.bottommacc;
 
 // Add the visualization svg canvas to the vis-container <div>
