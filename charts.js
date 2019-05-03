@@ -426,7 +426,7 @@ function makeBarChart_cat(data) {
     .enter().append("g")
    
  
-      //.attr("transform", function(d) { return "translate(" + x(d.technology) + ",0)"; })
+      //.attr("transform", function(d) { return "translate(" + x(d.technology) + ",0)"; } )
 
   technology.selectAll("rect")
       .data(function(d) {
