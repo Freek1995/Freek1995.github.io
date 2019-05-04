@@ -4,163 +4,163 @@
 
 // Initialize variables to store data in
 
-var A1_weight = 1.0
-var A2_weight = 1.0
-var A3_weight = 1.0
-var B1_weight = 1.0
-var B2_weight = 1.0
-var B3_weight = 1.0
-var C1_weight = 1.0
-var C2_weight = 1.0
-var C3_weight = 1.0
-var D1_weight = 1.0
-var D2_weight = 1.0
-var D3_weight = 1.0
+var Costs1_weight = 1.0
+var Costs2_weight = 1.0
+var Costs3_weight = 1.0
+var MultiActor1_weight = 1.0
+var MultiActor2_weight = 1.0
+var MultiActor3_weight = 1.0
+var Physical1_weight = 1.0
+var Physical2_weight = 1.0
+var Physical3_weight = 1.0
+var Behaviour1_weight = 1.0
+var Behaviour2_weight = 1.0
+var Behaviour3_weight = 1.0
 
 var costs_weight = 1.0
 var physical_weight = 1.0
 var multiactor_weight = 1.0
-var behavior_weight = 1.0
+var behaviour_weight = 1.0
 
 
 
 // Update to initial values - FACTORS
-document.getElementById('A1_weight_display').innerHTML = A1_weight
-document.getElementById('A2_weight_display').innerHTML = A2_weight
-document.getElementById('A3_weight_display').innerHTML = A3_weight
-document.getElementById('B1_weight_display').innerHTML = B1_weight
-document.getElementById('B2_weight_display').innerHTML = B2_weight
-document.getElementById('B3_weight_display').innerHTML = B3_weight
-document.getElementById('C1_weight_display').innerHTML = C1_weight
-document.getElementById('C2_weight_display').innerHTML = C2_weight
-document.getElementById('C3_weight_display').innerHTML = C3_weight
-document.getElementById('D1_weight_display').innerHTML = D1_weight
-document.getElementById('D2_weight_display').innerHTML = D2_weight
-document.getElementById('D3_weight_display').innerHTML = D3_weight
+document.getElementById('Costs1_weight_display').innerHTML = Costs1_weight
+document.getElementById('Costs2_weight_display').innerHTML = Costs2_weight
+document.getElementById('Costs3_weight_display').innerHTML = Costs3_weight
+document.getElementById('MultiActor1_weight_display').innerHTML = MultiActor1_weight
+document.getElementById('MultiActor2_weight_display').innerHTML = MultiActor2_weight
+document.getElementById('MultiActor3_weight_display').innerHTML = MultiActor3_weight
+document.getElementById('Physical1_weight_display').innerHTML = Physical1_weight
+document.getElementById('Physical2_weight_display').innerHTML = Physical2_weight
+document.getElementById('Physical3_weight_display').innerHTML = Physical3_weight
+document.getElementById('Behaviour1_weight_display').innerHTML = Behaviour1_weight
+document.getElementById('Behaviour2_weight_display').innerHTML = Behaviour2_weight
+document.getElementById('Behaviour3_weight_display').innerHTML = Behaviour3_weight
 
 document.getElementById('costs_weight_display').innerHTML = costs_weight
 document.getElementById('physical_weight_display').innerHTML = physical_weight
 document.getElementById('multiactor_weight_display').innerHTML = multiactor_weight
-document.getElementById('behavior_weight_display').innerHTML = behavior_weight
+document.getElementById('behaviour_weight_display').innerHTML = behaviour_weight
 
 
 // Update on input - FACTORS
 
-document.getElementById('slider_A1').oninput = function() {
-  A1_weight = document.getElementById('A1_weight').value/10
-  costs_weight = (A1_weight+A2_weight+A3_weight)/3
-  document.getElementById('A1_weight_display').innerHTML = A1_weight
+document.getElementById('slider_Costs1').oninput = function() {
+  Costs1_weight = document.getElementById('Costs1_weight').value/10
+  costs_weight = (Costs1_weight+Costs2_weight+Costs3_weight)/3
+  document.getElementById('Costs1_weight_display').innerHTML = Costs1_weight
   document.getElementById('costs_weight_display').innerHTML = parseFloat(Math.round(costs_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_A2').oninput = function() {
-  A2_weight = document.getElementById('A2_weight').value/10
-  costs_weight = (A1_weight+A2_weight+A3_weight)/3
-  document.getElementById('A2_weight_display').innerHTML = A2_weight
+document.getElementById('slider_Costs2').oninput = function() {
+  Costs2_weight = document.getElementById('Costs2_weight').value/10
+  costs_weight = (Costs1_weight+Costs2_weight+Costs3_weight)/3
+  document.getElementById('Costs2_weight_display').innerHTML = Costs2_weight
   document.getElementById('costs_weight_display').innerHTML = parseFloat(Math.round(costs_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_A3').oninput = function() {
-  A3_weight = document.getElementById('A3_weight').value/10
-  costs_weight = (A1_weight+A2_weight+A3_weight)/3
-  document.getElementById('A3_weight_display').innerHTML = A3_weight
+document.getElementById('slider_Costs3').oninput = function() {
+  Costs3_weight = document.getElementById('Costs3_weight').value/10
+  costs_weight = (Costs1_weight+Costs2_weight+Costs3_weight)/3
+  document.getElementById('Costs3_weight_display').innerHTML = Costs3_weight
   document.getElementById('costs_weight_display').innerHTML = parseFloat(Math.round(costs_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_B1').oninput = function() {
-  B1_weight = document.getElementById('B1_weight').value/10
-  multiactor_weight = (B1_weight+B2_weight+B3_weight)/3
-  document.getElementById('B1_weight_display').innerHTML = B1_weight
+document.getElementById('slider_MultiActor1').oninput = function() {
+  MultiActor1_weight = document.getElementById('MultiActor1_weight').value/10
+  multiactor_weight = (MultiActor1_weight+MultiActor2_weight+MultiActor3_weight)/3
+  document.getElementById('MultiActor1_weight_display').innerHTML = MultiActor1_weight
   document.getElementById('multiactor_weight_display').innerHTML = parseFloat(Math.round(multiactor_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_B2').oninput = function() {
-  B2_weight = document.getElementById('B2_weight').value/10
-  multiactor_weight = (B1_weight+B2_weight+B3_weight)/3
-  document.getElementById('B2_weight_display').innerHTML = B2_weight
+document.getElementById('slider_MultiActor2').oninput = function() {
+  MultiActor2_weight = document.getElementById('MultiActor2_weight').value/10
+  multiactor_weight = (MultiActor1_weight+MultiActor2_weight+MultiActor3_weight)/3
+  document.getElementById('MultiActor2_weight_display').innerHTML = MultiActor2_weight
   document.getElementById('multiactor_weight_display').innerHTML = parseFloat(Math.round(multiactor_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_B3').oninput = function() {
-  B3_weight = document.getElementById('B3_weight').value/10
-  multiactor_weight = (B1_weight+B2_weight+B3_weight)/3
-  document.getElementById('B3_weight_display').innerHTML = B3_weight
+document.getElementById('slider_MultiActor3').oninput = function() {
+  MultiActor3_weight = document.getElementById('MultiActor3_weight').value/10
+  multiactor_weight = (MultiActor1_weight+MultiActor2_weight+MultiActor3_weight)/3
+  document.getElementById('MultiActor3_weight_display').innerHTML = MultiActor3_weight
   document.getElementById('multiactor_weight_display').innerHTML = parseFloat(Math.round(multiactor_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_C1').oninput = function() {
-  C1_weight = document.getElementById('C1_weight').value/10
-  physical_weight = (C1_weight+C2_weight+C3_weight)/3
-  document.getElementById('C1_weight_display').innerHTML = C1_weight
+document.getElementById('slider_Physical1').oninput = function() {
+  Physical1_weight = document.getElementById('Physical1_weight').value/10
+  physical_weight = (Physical1_weight+Physical2_weight+Physical3_weight)/3
+  document.getElementById('Physical1_weight_display').innerHTML = Physical1_weight
   document.getElementById('physical_weight_display').innerHTML = parseFloat(Math.round(physical_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_C2').oninput = function() {
-  C2_weight = document.getElementById('C2_weight').value/10
-  physical_weight = (C1_weight+C2_weight+C3_weight)/3
-  document.getElementById('C2_weight_display').innerHTML = C2_weight
+document.getElementById('slider_Physical2').oninput = function() {
+  Physical2_weight = document.getElementById('Physical2_weight').value/10
+  physical_weight = (Physical1_weight+Physical2_weight+Physical3_weight)/3
+  document.getElementById('Physical2_weight_display').innerHTML = Physical2_weight
   document.getElementById('physical_weight_display').innerHTML = parseFloat(Math.round(physical_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_C3').oninput = function() {
-  C3_weight = document.getElementById('C3_weight').value/10
-  physical_weight = (C1_weight+C2_weight+C3_weight)/3
-  document.getElementById('C3_weight_display').innerHTML = C3_weight
+document.getElementById('slider_Physical3').oninput = function() {
+  Physical3_weight = document.getElementById('Physical3_weight').value/10
+  physical_weight = (Physical1_weight+Physical2_weight+Physical3_weight)/3
+  document.getElementById('Physical3_weight_display').innerHTML = Physical3_weight
   document.getElementById('physical_weight_display').innerHTML = parseFloat(Math.round(physical_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_D1').oninput = function() {
-  D1_weight = document.getElementById('D1_weight').value/10
-  behavior_weight = (D1_weight+D2_weight+D3_weight)/3
-  document.getElementById('D1_weight_display').innerHTML = D1_weight
-  document.getElementById('behavior_weight_display').innerHTML = parseFloat(Math.round(behavior_weight * 100) / 100).toFixed(1);
+document.getElementById('slider_Behaviour1').oninput = function() {
+  Behaviour1_weight = document.getElementById('Behaviour1_weight').value/10
+  behaviour_weight = (Behaviour1_weight+Behaviour2_weight+Behaviour3_weight)/3
+  document.getElementById('Behaviour1_weight_display').innerHTML = Behaviour1_weight
+  document.getElementById('behaviour_weight_display').innerHTML = parseFloat(Math.round(behaviour_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_D2').oninput = function() {
-  D2_weight = document.getElementById('D2_weight').value/10
-  behavior_weight = (D1_weight+D2_weight+D3_weight)/3
-  document.getElementById('D2_weight_display').innerHTML = D2_weight
-  document.getElementById('behavior_weight_display').innerHTML = parseFloat(Math.round(behavior_weight * 100) / 100).toFixed(1);
+document.getElementById('slider_Behaviour2').oninput = function() {
+  Behaviour2_weight = document.getElementById('Behaviour2_weight').value/10
+  behaviour_weight = (Behaviour1_weight+Behaviour2_weight+Behaviour3_weight)/3
+  document.getElementById('Behaviour2_weight_display').innerHTML = Behaviour2_weight
+  document.getElementById('behaviour_weight_display').innerHTML = parseFloat(Math.round(behaviour_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_D3').oninput = function() {
-  D3_weight = document.getElementById('D3_weight').value/10
-  behavior_weight = (D1_weight+D2_weight+D3_weight)/3
-  document.getElementById('D3_weight_display').innerHTML = D3_weight
-  document.getElementById('behavior_weight_display').innerHTML = parseFloat(Math.round(behavior_weight * 100) / 100).toFixed(1);
+document.getElementById('slider_Behaviour3').oninput = function() {
+  Behaviour3_weight = document.getElementById('Behaviour3_weight').value/10
+  behaviour_weight = (Behaviour1_weight+Behaviour2_weight+Behaviour3_weight)/3
+  document.getElementById('Behaviour3_weight_display').innerHTML = Behaviour3_weight
+  document.getElementById('behaviour_weight_display').innerHTML = parseFloat(Math.round(behaviour_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
@@ -170,28 +170,28 @@ document.getElementById('slider_D3').oninput = function() {
 
 document.getElementById('slider_costs').oninput = function() {
   costs_weight = document.getElementById('costs_weight').value/10
-  // A1_initial_weight = A1_weight
-  // A2_initial_weight = A2_weight
-  // A3_initial_weight = A3_weight
-  // A1_weight = ((A1_initial_weight/(A1_initial_weight+A2_initial_weight+A3_initial_weight))*3*costs_weight)
-  // A2_weight = ((A2_initial_weight/(A1_initial_weight+A2_initial_weight+A3_initial_weight))*3*costs_weight)
-  // A3_weight = ((A3_initial_weight/(A1_initial_weight+A2_initial_weight+A3_initial_weight))*3*costs_weight)
-  A1_weight = costs_weight
-  A2_weight = costs_weight
-  A3_weight = costs_weight
-  B1_weight = multiactor_weight
-  B2_weight = multiactor_weight
-  B3_weight = multiactor_weight
-  C1_weight = physical_weight
-  C2_weight = physical_weight
-  C3_weight = physical_weight
-  D1_weight = behavior_weight
-  D2_weight = behavior_weight
-  D3_weight = behavior_weight
+  // Costs1_initial_weight = Costs1_weight
+  // Costs2_initial_weight = Costs2_weight
+  // Costs3_initial_weight = Costs3_weight
+  // Costs1_weight = ((Costs1_initial_weight/(Costs1_initial_weight+Costs2_initial_weight+Costs3_initial_weight))*3*costs_weight)
+  // Costs2_weight = ((Costs2_initial_weight/(Costs1_initial_weight+Costs2_initial_weight+Costs3_initial_weight))*3*costs_weight)
+  // Costs3_weight = ((Costs3_initial_weight/(Costs1_initial_weight+Costs2_initial_weight+Costs3_initial_weight))*3*costs_weight)
+  Costs1_weight = costs_weight
+  Costs2_weight = costs_weight
+  Costs3_weight = costs_weight
+  MultiActor1_weight = multiactor_weight
+  MultiActor2_weight = multiactor_weight
+  MultiActor3_weight = multiactor_weight
+  Physical1_weight = physical_weight
+  Physical2_weight = physical_weight
+  Physical3_weight = physical_weight
+  Behaviour1_weight = behaviour_weight
+  Behaviour2_weight = behaviour_weight
+  Behaviour3_weight = behaviour_weight
   document.getElementById('costs_weight_display').innerHTML = costs_weight
-  document.getElementById('A1_weight_display').innerHTML = parseFloat(Math.round(A1_weight * 100) / 100).toFixed(1);
-  document.getElementById('A2_weight_display').innerHTML = parseFloat(Math.round(A2_weight * 100) / 100).toFixed(1);
-  document.getElementById('A3_weight_display').innerHTML = parseFloat(Math.round(A3_weight * 100) / 100).toFixed(1);
+  document.getElementById('Costs1_weight_display').innerHTML = parseFloat(Math.round(Costs1_weight * 100) / 100).toFixed(1);
+  document.getElementById('Costs2_weight_display').innerHTML = parseFloat(Math.round(Costs2_weight * 100) / 100).toFixed(1);
+  document.getElementById('Costs3_weight_display').innerHTML = parseFloat(Math.round(Costs3_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
@@ -199,28 +199,28 @@ document.getElementById('slider_costs').oninput = function() {
 
 document.getElementById('slider_multiactor').oninput = function() {
   multiactor_weight = document.getElementById('multiactor_weight').value/10
-  // B1_initial_weight = B1_weight
-  // B2_initial_weight = B2_weight
-  // B3_initial_weight = B3_weight
-  // B1_weight = ((B1_initial_weight/(B1_initial_weight+B2_initial_weight+B3_initial_weight))*3*multiactor_weight)
-  // B2_weight = ((B2_initial_weight/(B1_initial_weight+B2_initial_weight+B3_initial_weight))*3*multiactor_weight)
-  // B3_weight = ((B3_initial_weight/(B1_initial_weight+B2_initial_weight+B3_initial_weight))*3*multiactor_weight)
-  A1_weight = costs_weight
-  A2_weight = costs_weight
-  A3_weight = costs_weight
-  B1_weight = multiactor_weight
-  B2_weight = multiactor_weight
-  B3_weight = multiactor_weight
-  C1_weight = physical_weight
-  C2_weight = physical_weight
-  C3_weight = physical_weight
-  D1_weight = behavior_weight
-  D2_weight = behavior_weight
-  D3_weight = behavior_weight
+  // MultiActor1_initial_weight = MultiActor1_weight
+  // MultiActor2_initial_weight = MultiActor2_weight
+  // MultiActor3_initial_weight = MultiActor3_weight
+  // MultiActor1_weight = ((MultiActor1_initial_weight/(MultiActor1_initial_weight+MultiActor2_initial_weight+MultiActor3_initial_weight))*3*multiactor_weight)
+  // MultiActor2_weight = ((MultiActor2_initial_weight/(MultiActor1_initial_weight+MultiActor2_initial_weight+MultiActor3_initial_weight))*3*multiactor_weight)
+  // MultiActor3_weight = ((MultiActor3_initial_weight/(MultiActor1_initial_weight+MultiActor2_initial_weight+MultiActor3_initial_weight))*3*multiactor_weight)
+  Costs1_weight = costs_weight
+  Costs2_weight = costs_weight
+  Costs3_weight = costs_weight
+  MultiActor1_weight = multiactor_weight
+  MultiActor2_weight = multiactor_weight
+  MultiActor3_weight = multiactor_weight
+  Physical1_weight = physical_weight
+  Physical2_weight = physical_weight
+  Physical3_weight = physical_weight
+  Behaviour1_weight = behaviour_weight
+  Behaviour2_weight = behaviour_weight
+  Behaviour3_weight = behaviour_weight
   document.getElementById('multiactor_weight_display').innerHTML = multiactor_weight
-  document.getElementById('B1_weight_display').innerHTML = parseFloat(Math.round(B1_weight * 100) / 100).toFixed(1);
-  document.getElementById('B2_weight_display').innerHTML = parseFloat(Math.round(B2_weight * 100) / 100).toFixed(1);
-  document.getElementById('B3_weight_display').innerHTML = parseFloat(Math.round(B3_weight * 100) / 100).toFixed(1);
+  document.getElementById('MultiActor1_weight_display').innerHTML = parseFloat(Math.round(MultiActor1_weight * 100) / 100).toFixed(1);
+  document.getElementById('MultiActor2_weight_display').innerHTML = parseFloat(Math.round(MultiActor2_weight * 100) / 100).toFixed(1);
+  document.getElementById('MultiActor3_weight_display').innerHTML = parseFloat(Math.round(MultiActor3_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
@@ -228,105 +228,105 @@ document.getElementById('slider_multiactor').oninput = function() {
 
 document.getElementById('slider_physical').oninput = function() {
   physical_weight = document.getElementById('physical_weight').value/10
-  // C1_initial_weight = C1_weight
-  // C2_initial_weight = C2_weight
-  // C3_initial_weight = C3_weight
-  // C1_weight = ((C1_initial_weight/(C1_initial_weight+C2_initial_weight+C3_initial_weight))*3*physical_weight)
-  // C2_weight = ((C2_initial_weight/(C1_initial_weight+C2_initial_weight+C3_initial_weight))*3*physical_weight)
-  // C3_weight = ((C3_initial_weight/(C1_initial_weight+C2_initial_weight+C3_initial_weight))*3*physical_weight)
-  A1_weight = costs_weight
-  A2_weight = costs_weight
-  A3_weight = costs_weight
-  B1_weight = multiactor_weight
-  B2_weight = multiactor_weight
-  B3_weight = multiactor_weight
-  C1_weight = physical_weight
-  C2_weight = physical_weight
-  C3_weight = physical_weight
-  D1_weight = behavior_weight
-  D2_weight = behavior_weight
-  D3_weight = behavior_weight
+  // Physical1_initial_weight = Physical1_weight
+  // Physical2_initial_weight = Physical2_weight
+  // Physical3_initial_weight = Physical3_weight
+  // Physical1_weight = ((Physical1_initial_weight/(Physical1_initial_weight+Physical2_initial_weight+Physical3_initial_weight))*3*physical_weight)
+  // Physical2_weight = ((Physical2_initial_weight/(Physical1_initial_weight+Physical2_initial_weight+Physical3_initial_weight))*3*physical_weight)
+  // Physical3_weight = ((Physical3_initial_weight/(Physical1_initial_weight+Physical2_initial_weight+Physical3_initial_weight))*3*physical_weight)
+  Costs1_weight = costs_weight
+  Costs2_weight = costs_weight
+  Costs3_weight = costs_weight
+  MultiActor1_weight = multiactor_weight
+  MultiActor2_weight = multiactor_weight
+  MultiActor3_weight = multiactor_weight
+  Physical1_weight = physical_weight
+  Physical2_weight = physical_weight
+  Physical3_weight = physical_weight
+  Behaviour1_weight = behaviour_weight
+  Behaviour2_weight = behaviour_weight
+  Behaviour3_weight = behaviour_weight
   document.getElementById('physical_weight_display').innerHTML = physical_weight
-  document.getElementById('C1_weight_display').innerHTML = parseFloat(Math.round(C1_weight * 100) / 100).toFixed(1);
-  document.getElementById('C2_weight_display').innerHTML = parseFloat(Math.round(C2_weight * 100) / 100).toFixed(1);
-  document.getElementById('C3_weight_display').innerHTML = parseFloat(Math.round(C3_weight * 100) / 100).toFixed(1);
+  document.getElementById('Physical1_weight_display').innerHTML = parseFloat(Math.round(Physical1_weight * 100) / 100).toFixed(1);
+  document.getElementById('Physical2_weight_display').innerHTML = parseFloat(Math.round(Physical2_weight * 100) / 100).toFixed(1);
+  document.getElementById('Physical3_weight_display').innerHTML = parseFloat(Math.round(Physical3_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
-document.getElementById('slider_behavior').oninput = function() {
-  behavior_weight = document.getElementById('behavior_weight').value/10
-  // D1_initial_weight = D1_weight
-  // D2_initial_weight = D2_weight
-  // D3_initial_weight = D3_weight
-  A1_weight = costs_weight
-  A2_weight = costs_weight
-  A3_weight = costs_weight
-  B1_weight = multiactor_weight
-  B2_weight = multiactor_weight
-  B3_weight = multiactor_weight
-  C1_weight = physical_weight
-  C2_weight = physical_weight
-  C3_weight = physical_weight
-  D1_weight = behavior_weight
-  D2_weight = behavior_weight
-  D3_weight = behavior_weight
-  // D1_weight = ((D1_initial_weight/(D1_initial_weight+D2_initial_weight+D3_initial_weight))*3*behavior_weight)
-  // D2_weight = ((D2_initial_weight/(D1_initial_weight+D2_initial_weight+D3_initial_weight))*3*behavior_weight)
-  // D3_weight = ((D3_initial_weight/(D1_initial_weight+D2_initial_weight+D3_initial_weight))*3*behavior_weight)
-  document.getElementById('behavior_weight_display').innerHTML = behavior_weight
-  document.getElementById('D1_weight_display').innerHTML = parseFloat(Math.round(D1_weight * 100) / 100).toFixed(1);
-  document.getElementById('D2_weight_display').innerHTML = parseFloat(Math.round(D2_weight * 100) / 100).toFixed(1);
-  document.getElementById('D3_weight_display').innerHTML = parseFloat(Math.round(D3_weight * 100) / 100).toFixed(1);
+document.getElementById('slider_behaviour').oninput = function() {
+  behaviour_weight = document.getElementById('behaviour_weight').value/10
+  // Behaviour1_initial_weight = Behaviour1_weight
+  // Behaviour2_initial_weight = Behaviour2_weight
+  // Behaviour3_initial_weight = Behaviour3_weight
+  Costs1_weight = costs_weight
+  Costs2_weight = costs_weight
+  Costs3_weight = costs_weight
+  MultiActor1_weight = multiactor_weight
+  MultiActor2_weight = multiactor_weight
+  MultiActor3_weight = multiactor_weight
+  Physical1_weight = physical_weight
+  Physical2_weight = physical_weight
+  Physical3_weight = physical_weight
+  Behaviour1_weight = behaviour_weight
+  Behaviour2_weight = behaviour_weight
+  Behaviour3_weight = behaviour_weight
+  // Behaviour1_weight = ((Behaviour1_initial_weight/(Behaviour1_initial_weight+Behaviour2_initial_weight+Behaviour3_initial_weight))*3*behaviour_weight)
+  // Behaviour2_weight = ((Behaviour2_initial_weight/(Behaviour1_initial_weight+Behaviour2_initial_weight+Behaviour3_initial_weight))*3*behaviour_weight)
+  // Behaviour3_weight = ((Behaviour3_initial_weight/(Behaviour1_initial_weight+Behaviour2_initial_weight+Behaviour3_initial_weight))*3*behaviour_weight)
+  document.getElementById('behaviour_weight_display').innerHTML = behaviour_weight
+  document.getElementById('Behaviour1_weight_display').innerHTML = parseFloat(Math.round(Behaviour1_weight * 100) / 100).toFixed(1);
+  document.getElementById('Behaviour2_weight_display').innerHTML = parseFloat(Math.round(Behaviour2_weight * 100) / 100).toFixed(1);
+  document.getElementById('Behaviour3_weight_display').innerHTML = parseFloat(Math.round(Behaviour3_weight * 100) / 100).toFixed(1);
   changedataset()
   changedataset_cat()
   changedataset_macc()
 }
 
 function reset_weights() {
-A1_weight = 1.0
-A2_weight = 1.0
-A3_weight = 1.0
-B1_weight = 1.0
-B2_weight = 1.0
-B3_weight = 1.0
-C1_weight = 1.0
-C2_weight = 1.0
-C3_weight = 1.0
-D1_weight = 1.0
-D2_weight = 1.0
-D3_weight = 1.0
+Costs1_weight = 1.0
+Costs2_weight = 1.0
+Costs3_weight = 1.0
+MultiActor1_weight = 1.0
+MultiActor2_weight = 1.0
+MultiActor3_weight = 1.0
+Physical1_weight = 1.0
+Physical2_weight = 1.0
+Physical3_weight = 1.0
+Behaviour1_weight = 1.0
+Behaviour2_weight = 1.0
+Behaviour3_weight = 1.0
 
-document.getElementById('A1_weight_display').innerHTML = 1
-slider_A1.children[0].value =10
-document.getElementById('A2_weight_display').innerHTML = 1
-slider_A2.children[0].value =10
-document.getElementById('A3_weight_display').innerHTML = 1
-slider_A3.children[0].value =10
-document.getElementById('B1_weight_display').innerHTML = 1
-slider_B1.children[0].value =10
-document.getElementById('B2_weight_display').innerHTML = 1
-slider_B2.children[0].value =10
-document.getElementById('B3_weight_display').innerHTML = 1
-slider_B3.children[0].value =10
-document.getElementById('C1_weight_display').innerHTML = 1
-slider_C1.children[0].value =10
-document.getElementById('C2_weight_display').innerHTML = 1
-slider_C2.children[0].value =10
-document.getElementById('C3_weight_display').innerHTML = 1
-slider_C3.children[0].value =10
-document.getElementById('D1_weight_display').innerHTML = 1
-slider_D1.children[0].value =10
-document.getElementById('D2_weight_display').innerHTML = 1
-slider_D2.children[0].value =10
-document.getElementById('D3_weight_display').innerHTML = 1
-slider_D3.children[0].value =10
+document.getElementById('Costs1_weight_display').innerHTML = 1
+slider_Costs1.children[0].value =10
+document.getElementById('Costs2_weight_display').innerHTML = 1
+slider_Costs2.children[0].value =10
+document.getElementById('Costs3_weight_display').innerHTML = 1
+slider_Costs3.children[0].value =10
+document.getElementById('MultiActor1_weight_display').innerHTML = 1
+slider_MultiActor1.children[0].value =10
+document.getElementById('MultiActor2_weight_display').innerHTML = 1
+slider_MultiActor2.children[0].value =10
+document.getElementById('MultiActor3_weight_display').innerHTML = 1
+slider_MultiActor3.children[0].value =10
+document.getElementById('Physical1_weight_display').innerHTML = 1
+slider_Physical1.children[0].value =10
+document.getElementById('Physical2_weight_display').innerHTML = 1
+slider_Physical2.children[0].value =10
+document.getElementById('Physical3_weight_display').innerHTML = 1
+slider_Physical3.children[0].value =10
+document.getElementById('Behaviour1_weight_display').innerHTML = 1
+slider_Behaviour1.children[0].value =10
+document.getElementById('Behaviour2_weight_display').innerHTML = 1
+slider_Behaviour2.children[0].value =10
+document.getElementById('Behaviour3_weight_display').innerHTML = 1
+slider_Behaviour3.children[0].value =10
 
 costs_weight = 1.0
 physical_weight = 1.0
 multiactor_weight = 1.0
-behavior_weight = 1.0
+behaviour_weight = 1.0
 
 document.getElementById('costs_weight_display').innerHTML = 1
 slider_costs.children[0].value =10
@@ -334,8 +334,8 @@ document.getElementById('multiactor_weight_display').innerHTML = 1
 slider_multiactor.children[0].value =10
 document.getElementById('physical_weight_display').innerHTML = 1
 slider_physical.children[0].value =10
-document.getElementById('behavior_weight_display').innerHTML = 1
-slider_behavior.children[0].value =10
+document.getElementById('behaviour_weight_display').innerHTML = 1
+slider_behaviour.children[0].value =10
 
 changedataset()
 changedataset_cat()
@@ -481,14 +481,14 @@ function switch_graphs() {
       .style('visibility','visible')
       checkbox_holder.selectAll('#clicker')
         .on('mouseover', function(d,i) {
-          d3.select(this).transition()
+          Behaviour3.select(this).transition()
             .ease('cubic-out')
             .duration('200')
             .style('color', 'red')
             .style("cursor","pointer");
         })
         .on('mouseout', function(d,i) {
-          d3.select(this).transition()
+          Behaviour3.select(this).transition()
             .ease('cubic-out')
             .duration('200')
             .style('font-size', 11)
@@ -505,18 +505,18 @@ function switch_graphs() {
 function clicklegend_fac(d,data) {
   initial = get_value_of(d.mytech,d.name)
   totalscore = get_total_of(d.mytech,data)
-  if (d== "A1"||d.name=="A1"){category ="Cost and Financials", description="Investment cost required (A1)", weight = A1_weight; if (initial == 0){score = 0, scoredescription ="Absent";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else { score = 2, scoredescription = "Large"}}} else{
-    if (d== "A2"||d.name=="A2"){category ="Cost and Financials", description="Expected pay-back time (A2)", weight = A2_weight; if (initial == 0){score = 0, scoredescription ="less than 5 years";} else { if (initial ==1){score = 1, scoredescription ="5-12 years";} else { score = 2, scoredescription = "more than 12 years"}}} else{
-      if (d== "A3"||d.name=="A3"){category ="Cost and Financials", description="Difficulty in financing investment (A3)", weight = A3_weight; if (initial == 0){score = 0, scoredescription ="Low";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "High"}}} else{
-        if (d== "B1"||d.name=="B1"){category ="Multi-actor Complexity", description="Dependence on other actors (B1)", weight = B1_weight; if (initial == 0){score = 0, scoredescription ="No";} else { if (initial ==1){score = 1, scoredescription ="Little";} else  {score = 2, scoredescription = "Much"}}} else{
-          if (d== "B2"||d.name=="B2"){category ="Multi-actor Complexity", description="Diversity of other actors involved inc. conflicts (B2)", weight = B2_weight; if (initial == 0){score = 0, scoredescription ="Low";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "Large"}}} else{
-            if (d== "B3"||d.name=="B3"){category ="Multi-actor Complexity", description="Division of roles and responsibilities unclear (B3)", weight = B3_weight; if (initial == 0){score = 0, scoredescription ="Clear";} else { if (initial ==1){score = 1, scoredescription ="Slightly";} else {score = 2, scoredescription = "Unclear"}}} else{
-              if (d== "C1"||d.name=="C1"){category ="Physical Interdependencies", description="Physical embeddedness (C1)", weight = C1_weight; if (initial == 0){score = 0, scoredescription ="No";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "High"}}} else{
-                if (d== "C2"||d.name=="C2"){category ="Physical Interdependencies", description="Disturbs regular operation (C2)", weight = C2_weight; if (initial == 0){score = 0, scoredescription ="No";} else { if (initial ==1){score = 1, scoredescription ="Slightly";} else {score = 2, scoredescription = "Strong"}}} else{
-                  if (d== "C3"||d.name=="C3"){category ="Physical Interdependencies", description="Technology uncertainty (C3)", weight = C3_weight; if (initial == 0){score = 0, scoredescription ="Fully proven";} else { if (initial ==1){score = 1, scoredescription ="Small";} else {score = 2, scoredescription = "Large"}}} else{
-                    if (d== "D1"||d.name=="D1"){category ="Behavior", description="Absence of knowledge (D1)", weight = D1_weight; if (initial == 0){score = 0, scoredescription ="High Knowledge";} else { if (initial ==1){score = 1, scoredescription ="Low Knowledge";} else {score = 2, scoredescription = "No Knowledge"}}} else{
-                      if (d== "D2"||d.name=="D2"){category ="Behavior", description="Frequency of opportunity (D2)", weight = D2_weight; if (initial == 0){score = 0, scoredescription ="Often";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "Rarely"}}} else{
-                        if (d== "D3"||d.name=="D3"){category ="Behavior", description="Requires change in behavior (D3)", weight = D3_weight; if (initial == 0){score = 0, scoredescription ="None";} else { if (initial ==1){score = 1, scoredescription ="Slight";} else {score = 2, scoredescription = "Severe"}}} else{  
+  if (d== "Costs1"||d.name=="Costs1"){category ="Cost and Financials", description="Investment cost required (Costs1)", weight = Costs1_weight; if (initial == 0){score = 0, scoredescription ="Absent";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else { score = 2, scoredescription = "Large"}}} else{
+    if (d== "Costs2"||d.name=="Costs2"){category ="Cost and Financials", description="Expected pay-back time (Costs2)", weight = Costs2_weight; if (initial == 0){score = 0, scoredescription ="less than 5 years";} else { if (initial ==1){score = 1, scoredescription ="5-12 years";} else { score = 2, scoredescription = "more than 12 years"}}} else{
+      if (d== "Costs3"||d.name=="Costs3"){category ="Cost and Financials", description="Difficulty in financing investment (Costs3)", weight = Costs3_weight; if (initial == 0){score = 0, scoredescription ="Low";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "High"}}} else{
+        if (d== "MultiActor1"||d.name=="MultiActor1"){category ="Multi-actor Complexity", description="Dependence on other actors (MultiActor1)", weight = MultiActor1_weight; if (initial == 0){score = 0, scoredescription ="No";} else { if (initial ==1){score = 1, scoredescription ="Little";} else  {score = 2, scoredescription = "Much"}}} else{
+          if (d== "MultiActor2"||d.name=="MultiActor2"){category ="Multi-actor Complexity", description="Diversity of other actors involved inc. conflicts (MultiActor2)", weight = MultiActor2_weight; if (initial == 0){score = 0, scoredescription ="Low";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "Large"}}} else{
+            if (d== "MultiActor3"||d.name=="MultiActor3"){category ="Multi-actor Complexity", description="Division of roles and responsibilities unclear (MultiActor3)", weight = MultiActor3_weight; if (initial == 0){score = 0, scoredescription ="Clear";} else { if (initial ==1){score = 1, scoredescription ="Slightly";} else {score = 2, scoredescription = "Unclear"}}} else{
+              if (d== "Physical1"||d.name=="Physical1"){category ="Physical Interdependencies", description="Physical embeddedness (Physical1)", weight = Physical1_weight; if (initial == 0){score = 0, scoredescription ="No";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "High"}}} else{
+                if (d== "Physical2"||d.name=="Physical2"){category ="Physical Interdependencies", description="Disturbs regular operation (Physical2)", weight = Physical2_weight; if (initial == 0){score = 0, scoredescription ="No";} else { if (initial ==1){score = 1, scoredescription ="Slightly";} else {score = 2, scoredescription = "Strong"}}} else{
+                  if (d== "Physical3"||d.name=="Physical3"){category ="Physical Interdependencies", description="Technology uncertainty (Physical3)", weight = Physical3_weight; if (initial == 0){score = 0, scoredescription ="Fully proven";} else { if (initial ==1){score = 1, scoredescription ="Small";} else {score = 2, scoredescription = "Large"}}} else{
+                    if (d== "Behaviour1"||d.name=="Behaviour1"){category ="Behaviour", description="Absence of knowledge (Behaviour1)", weight = Behaviour1_weight; if (initial == 0){score = 0, scoredescription ="High Knowledge";} else { if (initial ==1){score = 1, scoredescription ="Low Knowledge";} else {score = 2, scoredescription = "No Knowledge"}}} else{
+                      if (d== "Behaviour2"||d.name=="Behaviour2"){category ="Behaviour", description="Frequency of opportunity (Behaviour2)", weight = Behaviour2_weight; if (initial == 0){score = 0, scoredescription ="Often";} else { if (initial ==1){score = 1, scoredescription ="Medium";} else {score = 2, scoredescription = "Rarely"}}} else{
+                        if (d== "Behaviour3"||d.name=="Behaviour3"){category ="Behaviour", description="Requires change in behaviour (Behaviour3)", weight = Behaviour3_weight; if (initial == 0){score = 0, scoredescription ="None";} else { if (initial ==1){score = 1, scoredescription ="Slight";} else {score = 2, scoredescription = "Severe"}}} else{  
   }}}}}}}}}}}}
 }
 
@@ -571,12 +571,12 @@ isAllCheck = !isAllCheck;
 }
 
 // function make_x_gridlines() {
-//   return d3.xAxis
+//   return Behaviour3.xAxis
 //   .ticks(5)
 // }
 
 // function make_y_gridlines(){
-//   return d3.yAxis
+//   return Behaviour3.yAxis
 //   .ticks(5)
 // }
 
@@ -592,7 +592,7 @@ function clickme(d){
 abatement_option.html("")
 abatement_heading = abatement_option.append("h3")
   .text(info.id)
-  .style("background-color", "#d3d3d3")
+  .style("background-color", "#Behaviour3Behaviour3Behaviour3")
   .style("border-radius", "5px")
   .style("padding", "4px")
   .style("margin", "1px")
@@ -626,18 +626,18 @@ col1.append("h6")
   .text("Costs and Financing")
   .style("font-weight", "bold")
 col1.append("span")
-  .text("Investment cost required (A1)")
+  .text("Investment cost required (Costs1)")
 col1.append("br")
-var dropdownA1 = col1.append("select")
-  .attr("name","A1")
-  .attr("id","A1")
+var dropdownCosts1 = col1.append("select")
+  .attr("name","Costs1")
+  .attr("id","Costs1")
   .attr("class","dropdown")
   .attr("name",info.id)
-var optionsA1 = dropdownA1.selectAll("option")
-    .data(A1data)
+var optionsCosts1 = dropdownCosts1.selectAll("option")
+    .data(Costs1data)
     .enter()
     .append("option");
-optionsA1.text(function(d) {
+optionsCosts1.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -645,18 +645,18 @@ optionsA1.text(function(d) {
 });
 col1.append("br")
 col1.append("span")
-  .text("Expected pay-back time (A2)")
+  .text("Expected pay-back time (Costs2)")
 col1.append("br")
-var dropdownA2 = col1.append("select")
-  .attr("name","A2")
-  .attr("id","A2")
+var dropdownCosts2 = col1.append("select")
+  .attr("name","Costs2")
+  .attr("id","Costs2")
   .attr("class","dropdown")
   .attr("name",info.id)   
-var optionsA2 = dropdownA2.selectAll("option")
-    .data(A2data)
+var optionsCosts2 = dropdownCosts2.selectAll("option")
+    .data(Costs2data)
     .enter()
     .append("option");
-optionsA2.text(function(d) {
+optionsCosts2.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -664,18 +664,18 @@ optionsA2.text(function(d) {
 });
 col1.append("br")
 col1.append("span")
-  .text("Difficulty in financing investment (A3)")
+  .text("Difficulty in financing investment (Costs3)")
 col1.append("br")
-var dropdownA3 = col1.append("select")
-  .attr("name","A3")
-  .attr("id","A3")
+var dropdownCosts3 = col1.append("select")
+  .attr("name","Costs3")
+  .attr("id","Costs3")
   .attr("class","dropdown")
   .attr("name",info.id)     
-var optionsA3 = dropdownA3.selectAll("option")
-    .data(A3data)
+var optionsCosts3 = dropdownCosts3.selectAll("option")
+    .data(Costs3data)
     .enter()
     .append("option");
-optionsA3.text(function(d) {
+optionsCosts3.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -689,18 +689,18 @@ col2.append("h6")
   .text("Multi-Actor Complexity")
   .style("font-weight", "bold")
 col2.append("span")
-  .text("Dependence on other actors (B1)")
+  .text("Dependence on other actors (MultiActor1)")
 col2.append("br")
-var dropdownB1 = col2.append("select")
-  .attr("name","B1")
-  .attr("id","B1")
+var dropdownMultiActor1 = col2.append("select")
+  .attr("name","MultiActor1")
+  .attr("id","MultiActor1")
   .attr("class","dropdown")
   .attr("name",info.id)
-var optionsB1 = dropdownB1.selectAll("option")
-    .data(B1data)
+var optionsMultiActor1 = dropdownMultiActor1.selectAll("option")
+    .data(MultiActor1data)
     .enter()
     .append("option");
-optionsB1.text(function(d) {
+optionsMultiActor1.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -708,18 +708,18 @@ optionsB1.text(function(d) {
 });
 col2.append("br")
 col2.append("span")
-  .text("Diversity of actors involved inc. conflicts (B2)")
+  .text("Diversity of actors involved inc. conflicts (MultiActor2)")
 col2.append("br")
-var dropdownB2 = col2.append("select")
-  .attr("name","B2")
-  .attr("id","B2")
+var dropdownMultiActor2 = col2.append("select")
+  .attr("name","MultiActor2")
+  .attr("id","MultiActor2")
   .attr("class","dropdown")
   .attr("name",info.id)   
-var optionsB2 = dropdownB2.selectAll("option")
-    .data(B2data)
+var optionsMultiActor2 = dropdownMultiActor2.selectAll("option")
+    .data(MultiActor2data)
     .enter()
     .append("option");
-optionsB2.text(function(d) {
+optionsMultiActor2.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -727,18 +727,18 @@ optionsB2.text(function(d) {
 });
 col2.append("br")
 col2.append("span")
-  .text("Division of roles and responsibilities unclear (B3)")
+  .text("Division of roles and responsibilities unclear (MultiActor3)")
 col2.append("br")
-var dropdownB3 = col2.append("select")
-  .attr("name","B3")
-  .attr("id","B3")
+var dropdownMultiActor3 = col2.append("select")
+  .attr("name","MultiActor3")
+  .attr("id","MultiActor3")
   .attr("class","dropdown")
   .attr("name",info.id)     
-var optionsB3 = dropdownB3.selectAll("option")
-    .data(B3data)
+var optionsMultiActor3 = dropdownMultiActor3.selectAll("option")
+    .data(MultiActor3data)
     .enter()
     .append("option");
-optionsB3.text(function(d) {
+optionsMultiActor3.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -752,18 +752,18 @@ col3.append("h6")
   .text("Physical Interdependences")
   .style("font-weight", "bold")
 col3.append("span")
-  .text("Physical embeddedness (C1)")
+  .text("Physical embeddedness (Physical1)")
 col3.append("br")
-var dropdownC1 = col3.append("select")
-  .attr("name","C1")
-  .attr("id","C1")
+var dropdownPhysical1 = col3.append("select")
+  .attr("name","Physical1")
+  .attr("id","Physical1")
   .attr("class","dropdown")
   .attr("name",info.id)
-var optionsC1 = dropdownC1.selectAll("option")
-    .data(C1data)
+var optionsPhysical1 = dropdownPhysical1.selectAll("option")
+    .data(Physical1data)
     .enter()
     .append("option");
-optionsC1.text(function(d) {
+optionsPhysical1.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -771,18 +771,18 @@ optionsC1.text(function(d) {
 });
 col3.append("br")
 col3.append("span")
-  .text("Disturbs regular operation (C2)")
+  .text("Disturbs regular operation (Physical2)")
 col3.append("br")
-var dropdownC2 = col3.append("select")
-  .attr("name","C2")
-  .attr("id","C2")
+var dropdownPhysical2 = col3.append("select")
+  .attr("name","Physical2")
+  .attr("id","Physical2")
   .attr("class","dropdown")
   .attr("name",info.id)   
-var optionsC2 = dropdownC2.selectAll("option")
-    .data(C2data)
+var optionsPhysical2 = dropdownPhysical2.selectAll("option")
+    .data(Physical2data)
     .enter()
     .append("option");
-optionsC2.text(function(d) {
+optionsPhysical2.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -790,18 +790,18 @@ optionsC2.text(function(d) {
 });
 col3.append("br")
 col3.append("span")
-  .text("Technology uncertainty (C3)")
+  .text("Technology uncertainty (Physical3)")
 col3.append("br")
-var dropdownC3 = col3.append("select")
-  .attr("name","C3")
-  .attr("id","C3")
+var dropdownPhysical3 = col3.append("select")
+  .attr("name","Physical3")
+  .attr("id","Physical3")
   .attr("class","dropdown")
   .attr("name",info.id)     
-var optionsC3 = dropdownC3.selectAll("option")
-    .data(C3data)
+var optionsPhysical3 = dropdownPhysical3.selectAll("option")
+    .data(Physical3data)
     .enter()
     .append("option");
-optionsC3.text(function(d) {
+optionsPhysical3.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -812,21 +812,21 @@ var col4 = row1.append("div")
   .attr("id", "multiactor")
   .attr("class","col-3")
 col4.append("h6")
-  .text("Behavior")
+  .text("Behaviour")
   .style("font-weight", "bold")
 col4.append("span")
-  .text("Absence of Knowledge (D1)")
+  .text("Absence of Knowledge (Behaviour1)")
 col4.append("br")
-var dropdownD1 = col4.append("select")
-  .attr("name","D1")
-  .attr("id","D1")
+var dropdownBehaviour1 = col4.append("select")
+  .attr("name","Behaviour1")
+  .attr("id","Behaviour1")
   .attr("class","dropdown")
   .attr("name",info.id)
-var optionsD1 = dropdownD1.selectAll("option")
-    .data(D1data)
+var optionsBehaviour1 = dropdownBehaviour1.selectAll("option")
+    .data(Behaviour1data)
     .enter()
     .append("option");
-optionsD1.text(function(d) {
+optionsBehaviour1.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -834,18 +834,18 @@ optionsD1.text(function(d) {
 });
 col4.append("br")
 col4.append("span")
-  .text("Frequency of opportunity (D2)")
+  .text("Frequency of opportunity (Behaviour2)")
 col4.append("br")
-var dropdownD2 = col4.append("select")
-  .attr("name","D2")
-  .attr("id","D2")
+var dropdownBehaviour2 = col4.append("select")
+  .attr("name","Behaviour2")
+  .attr("id","Behaviour2")
   .attr("class","dropdown")
   .attr("name",info.id)   
-var optionsD2 = dropdownD2.selectAll("option")
-    .data(D2data)
+var optionsBehaviour2 = dropdownBehaviour2.selectAll("option")
+    .data(Behaviour2data)
     .enter()
     .append("option");
-optionsD2.text(function(d) {
+optionsBehaviour2.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -853,18 +853,18 @@ optionsD2.text(function(d) {
 });
 col4.append("br")
 col4.append("span")
-  .text("Requires change in behavior (D3)")
+  .text("Requires change in behaviour (Behaviour3)")
 col4.append("br")
-var dropdownD3 = col4.append("select")
-  .attr("name","D3")
-  .attr("id","D3")
+var dropdownBehaviour3 = col4.append("select")
+  .attr("name","Behaviour3")
+  .attr("id","Behaviour3")
   .attr("class","dropdown")
   .attr("name",info.id)     
-var optionsD3 = dropdownD3.selectAll("option")
-    .data(D3data)
+var optionsBehaviour3 = dropdownBehaviour3.selectAll("option")
+    .data(Behaviour3data)
     .enter()
     .append("option");
-optionsD3.text(function(d) {
+optionsBehaviour3.text(function(d) {
   return d.NAME;
 })
 .attr("value", function(d) {
@@ -892,7 +892,7 @@ for (var i = 0; i < list_of_dropdowns.length; i++) {                    //loopt 
 var list_of_dropdowns_new =document.getElementsByClassName("dropdown")
 function submitvalues() {
   for (var k=0; k < list_of_dropdowns_new.length; k++) {                        //loopt door de dropdown list
-  var dropdown_id_new = list_of_dropdowns_new[k]['id']                          //haalt de id (A1/A2 etc. ) op en stopt ze in variable
+  var dropdown_id_new = list_of_dropdowns_new[k]['id']                          //haalt de id (Costs1/Costs2 etc. ) op en stopt ze in variable
   dropdown_new = document.getElementById(dropdown_id_new)    	                   //haalt de hele lisjt van huidige dropdown op
   selected_option = dropdown_new[dropdown_new.selectedIndex].value              // selected waarde van de dropdowns
   technology_id = dropdown_new.name                                             // naam van de technologie

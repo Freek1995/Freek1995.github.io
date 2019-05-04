@@ -49,10 +49,10 @@ function parsedataset(error, data) {
 // console.log(color.domain())
     var mytech = d.technology; //add to stock code
     var y0 = 0;
-    d['costs'] = parseFloat(d['A1'])+parseFloat(d['A2'])+parseFloat(d['A3'])
-    d['multiactor'] = parseFloat(d['B1'])+parseFloat(d['B2'])+parseFloat(d['B3'])
-    d['physical'] = parseFloat(d['C1'])+parseFloat(d['C2'])+parseFloat(d['C3'])
-    d['behavior'] = parseFloat(d['D1'])+parseFloat(d['D2'])+parseFloat(d['D3'])
+    d['costs'] = parseFloat(d['Costs1'])+parseFloat(d['Costs2'])+parseFloat(d['Costs3'])
+    d['multiactor'] = parseFloat(d['MultiActor1'])+parseFloat(d['MultiActor2'])+parseFloat(d['MultiActor3'])
+    d['physical'] = parseFloat(d['Physical1'])+parseFloat(d['Physical2'])+parseFloat(d['Physical3'])
+    d['behaviour'] = parseFloat(d['Behaviour1'])+parseFloat(d['Behaviour2'])+parseFloat(d['Behaviour3'])
 
     d.factors = color.domain().map(function(name) { return {mytech:mytech, name: name, y0: y0, y1: y0 += +d[name]}; });
     d.total = d.factors[d.factors.length - 1].y1;
@@ -72,18 +72,18 @@ function changedataset() {
   new_data.forEach(function(d){
     d['technology'] = d['technology']
 
-    d['A1'] = d['A1'] * A1_weight
-    d['A2'] = d['A2'] * A2_weight
-    d['A3'] = d['A3'] * A3_weight
-    d['B1'] = d['B1'] * B1_weight
-    d['B2'] = d['B2'] * B2_weight
-    d['B3'] = d['B3'] * B3_weight
-    d['C1'] = d['C1'] * C1_weight
-    d['C2'] = d['C2'] * C2_weight
-    d['C3'] = d['C3'] * C3_weight
-    d['D1'] = d['D1'] * D1_weight
-    d['D2'] = d['D2'] * D2_weight
-    d['D3'] = d['D3'] * D3_weight
+    d['Costs1'] = d['Costs1'] * Costs1_weight
+    d['Costs2'] = d['Costs2'] * Costs2_weight
+    d['Costs3'] = d['Costs3'] * Costs3_weight
+    d['MultiActor1'] = d['MultiActor1'] * MultiActor1_weight
+    d['MultiActor2'] = d['MultiActor2'] * MultiActor2_weight
+    d['MultiActor3'] = d['MultiActor3'] * MultiActor3_weight
+    d['Physical1'] = d['Physical1'] * Physical1_weight
+    d['Physical2'] = d['Physical2'] * Physical2_weight
+    d['Physical3'] = d['Physical3'] * Physical3_weight
+    d['Behaviour1'] = d['Behaviour1'] * Behaviour1_weight
+    d['Behaviour2'] = d['Behaviour2'] * Behaviour2_weight
+    d['Behaviour3'] = d['Behaviour3'] * Behaviour3_weight
 
     var mytech = d.technology; //add to stock code
     var y0 = 0;
@@ -246,7 +246,7 @@ var  mouseout_legend_fac = function(d) {
   var legend = svg.selectAll(".legend")
       .data(color.domain().slice().reverse())
     .enter().append("g")
-      .attr("transform", function(d, i) { return "translate(0," + i * 12 + ")"; }) 
+      .attr("transform", function(d, i) { return "translate(0," + i * 15 + ")"; }) 
 
 //adding colors and squares to the legend
   legend.append("rect")
@@ -328,14 +328,14 @@ queue()
 function parsedataset_cat(error, data) {
   data.forEach(function(d) {
    
-    d['Behavior'] = parseFloat(d['D1'])+parseFloat(d['D2'])+parseFloat(d['D3'])
-    d['Physical Interdependencies'] = parseFloat(d['C1'])+parseFloat(d['C2'])+parseFloat(d['C3'])
-    d['Multi-actor Complexity'] = parseFloat(d['B1'])+parseFloat(d['B2'])+parseFloat(d['B3'])
-    d['Cost and Financials'] = parseFloat(d['A1'])+parseFloat(d['A2'])+parseFloat(d['A3'])
+    d['Behaviour'] = parseFloat(d['Behaviour1'])+parseFloat(d['Behaviour2'])+parseFloat(d['Behaviour3'])
+    d['Physical Interdependencies'] = parseFloat(d['Physical1'])+parseFloat(d['Physical2'])+parseFloat(d['Physical3'])
+    d['Multi-actor Complexity'] = parseFloat(d['MultiActor1'])+parseFloat(d['MultiActor2'])+parseFloat(d['MultiActor3'])
+    d['Cost and Financials'] = parseFloat(d['Costs1'])+parseFloat(d['Costs2'])+parseFloat(d['Costs3'])
   }
   )
 
-  color_cat.domain(d3.keys(data[0]).filter(function(key) { return key !==  "technology" && key !== "label" && key !=="barrier" && key !=="info" && key !=="maccvalues" && key !=="potential" && key !=="A1" && key !=="A2" && key !=="A3" && key !=="B1" && key !=="B2" && key !=="B3" && key !=="C1" && key !=="C2" && key !=="C3" && key !=="D1" && key !=="D2" && key !=="D3" ; }));
+  color_cat.domain(d3.keys(data[0]).filter(function(key) { return key !==  "technology" && key !== "label" && key !=="barrier" && key !=="info" && key !=="maccvalues" && key !=="potential" && key !=="Costs1" && key !=="Costs2" && key !=="Costs3" && key !=="MultiActor1" && key !=="MultiActor2" && key !=="MultiActor3" && key !=="Physical1" && key !=="Physical2" && key !=="Physical3" && key !=="Behaviour1" && key !=="Behaviour2" && key !=="Behaviour3" ; }));
 
   data.forEach(function(d) {
     var mytech = d.technology; //add to stock code
@@ -357,20 +357,20 @@ function changedataset_cat() {
 
   new_data.forEach(function(d){
 
-    d['Behavior'] = parseFloat(d['D1'])+parseFloat(d['D2'])+parseFloat(d['D3'])
-    d['Physical Interdependencies'] = parseFloat(d['C1'])+parseFloat(d['C2'])+parseFloat(d['C3'])
-    d['Multi-actor Complexity'] = parseFloat(d['B1'])+parseFloat(d['B2'])+parseFloat(d['B3'])
-    d['Cost and Financials'] = parseFloat(d['A1'])+parseFloat(d['A2'])+parseFloat(d['A3'])
+    d['Behaviour'] = parseFloat(d['Behaviour1'])+parseFloat(d['Behaviour2'])+parseFloat(d['Behaviour3'])
+    d['Physical Interdependencies'] = parseFloat(d['Physical1'])+parseFloat(d['Physical2'])+parseFloat(d['Physical3'])
+    d['Multi-actor Complexity'] = parseFloat(d['MultiActor1'])+parseFloat(d['MultiActor2'])+parseFloat(d['MultiActor3'])
+    d['Cost and Financials'] = parseFloat(d['Costs1'])+parseFloat(d['Costs2'])+parseFloat(d['Costs3'])
 
     d['technology'] = d['technology']
     d['Cost and Financials'] = d['Cost and Financials'] * costs_weight
     d['Physical Interdependencies'] = d['Physical Interdependencies'] * physical_weight
     d['Multi-actor Complexity'] = d['Multi-actor Complexity'] * multiactor_weight
-    d['Behavior'] = d['Behavior'] * behavior_weight
-    // d['Cost and Financials'] = d['Cost and Financials'] * ((A1_weight + A2_weight + A3_weight)/3)
-    // d['Physical Interdependencies'] = d['Physical Interdependencies'] * ((B1_weight + B2_weight + B3_weight)/3)
-    // d['Multi-actor Complexity'] = d['Multi-actor Complexity'] * ((C1_weight + C2_weight + C3_weight)/3)
-    // d['Behavior'] = d['Behavior'] * ((A1_weight + A2_weight + A3_weight)/3)
+    d['Behaviour'] = d['Behaviour'] * behaviour_weight
+    // d['Cost and Financials'] = d['Cost and Financials'] * ((Costs1_weight + Costs2_weight + Costs3_weight)/3)
+    // d['Physical Interdependencies'] = d['Physical Interdependencies'] * ((MultiActor1_weight + MultiActor2_weight + MultiActor3_weight)/3)
+    // d['Multi-actor Complexity'] = d['Multi-actor Complexity'] * ((Physical1_weight + Physical2_weight + Physical3_weight)/3)
+    // d['Behaviour'] = d['Behaviour'] * ((Costs1_weight + Costs2_weight + Costs3_weight)/3)
 
     var mytech = d.technology; //add to stock code
     var y0 = 0;
@@ -521,7 +521,7 @@ var  mouseout_legend_fac = function(d) {
   var legend = svg_cat.selectAll(".legend")
       .data(color_cat.domain().slice().reverse())
     .enter().append("g")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+      .attr("transform", function(d, i) { return "translate(0," + i * 25 + ")"; });
 
   //reverse order to match order in which bars are stacked    
     
@@ -592,7 +592,7 @@ var yAxisMAcc = d3.svg.axis()
 .orient('left');
 d3.tsv('factor_data.txt', function parsedataset_macc(error, data) {
     data.forEach(function(d) { // convert strings to numbers
-        d.totalmacc = parseFloat(d['A1'])+parseFloat(d['A2'])+parseFloat(d['A3'])+parseFloat(d['B1'])+parseFloat(d['B2'])+parseFloat(d['B3'])+parseFloat(d['C1'])+parseFloat(d['C2'])+parseFloat(d['C3'])+parseFloat(d['D1'])+parseFloat(d['D2'])+parseFloat(d['D3']);
+        d.totalmacc = parseFloat(d['Costs1'])+parseFloat(d['Costs2'])+parseFloat(d['Costs3'])+parseFloat(d['MultiActor1'])+parseFloat(d['MultiActor2'])+parseFloat(d['MultiActor3'])+parseFloat(d['Physical1'])+parseFloat(d['Physical2'])+parseFloat(d['Physical3'])+parseFloat(d['Behaviour1'])+parseFloat(d['Behaviour2'])+parseFloat(d['Behaviour3']);
         d.maccvalues = +d.maccvalues;
         dataset_macc = data;
         checkboxdata_macc = data;
@@ -602,26 +602,26 @@ d3.tsv('factor_data.txt', function parsedataset_macc(error, data) {
 });
 
 function changedataset_macc() {
-    new_data2 = JSON.parse(JSON.stringify(dataset));
+    new_datCosts2 = JSON.parse(JSON.stringify(dataset));
 
-    new_data2.forEach(function(d){
-    d['A1'] = d['A1'] * A1_weight
-    d['A2'] = d['A2'] * A2_weight
-    d['A3'] = d['A3'] * A3_weight
-    d['B1'] = d['B1'] * B1_weight
-    d['B2'] = d['B2'] * B2_weight
-    d['B3'] = d['B3'] * B3_weight
-    d['C1'] = d['C1'] * C1_weight
-    d['C2'] = d['C2'] * C2_weight
-    d['C3'] = d['C3'] * C3_weight
-    d['D1'] = d['D1'] * D1_weight
-    d['D2'] = d['D2'] * D2_weight
-    d['D3'] = d['D3'] * D3_weight
+    new_datCosts2.forEach(function(d){
+    d['Costs1'] = d['Costs1'] * Costs1_weight
+    d['Costs2'] = d['Costs2'] * Costs2_weight
+    d['Costs3'] = d['Costs3'] * Costs3_weight
+    d['MultiActor1'] = d['MultiActor1'] * MultiActor1_weight
+    d['MultiActor2'] = d['MultiActor2'] * MultiActor2_weight
+    d['MultiActor3'] = d['MultiActor3'] * MultiActor3_weight
+    d['Physical1'] = d['Physical1'] * Physical1_weight
+    d['Physical2'] = d['Physical2'] * Physical2_weight
+    d['Physical3'] = d['Physical3'] * Physical3_weight
+    d['Behaviour1'] = d['Behaviour1'] * Behaviour1_weight
+    d['Behaviour2'] = d['Behaviour2'] * Behaviour2_weight
+    d['Behaviour3'] = d['Behaviour3'] * Behaviour3_weight
     d.maccvalues = + d.maccvalues;
 
-    d.totalmacc = parseFloat(d['A1'])+parseFloat(d['A2'])+parseFloat(d['A3'])+parseFloat(d['B1'])+parseFloat(d['B2'])+parseFloat(d['B3'])+parseFloat(d['C1'])+parseFloat(d['C2'])+parseFloat(d['C3'])+parseFloat(d['D1'])+parseFloat(d['D2'])+parseFloat(d['D3'])
+    d.totalmacc = parseFloat(d['Costs1'])+parseFloat(d['Costs2'])+parseFloat(d['Costs3'])+parseFloat(d['MultiActor1'])+parseFloat(d['MultiActor2'])+parseFloat(d['MultiActor3'])+parseFloat(d['Physical1'])+parseFloat(d['Physical2'])+parseFloat(d['Physical3'])+parseFloat(d['Behaviour1'])+parseFloat(d['Behaviour2'])+parseFloat(d['Behaviour3'])
     })
-    makescatterplot(new_data2)
+    makescatterplot(new_datCosts2)
 }
 
 makescatterplot = function(data) {
