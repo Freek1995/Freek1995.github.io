@@ -118,7 +118,7 @@
                         </div>
                         <div id ="sliders_factor" style=" font-size:11px; height:200px">
                             <div class="row" >
-                                <div class="col-2"><p style="height:25px; color:black">Investment cost required (A1)</p>
+                                <div class="col-2"><p style="height:25px; color:black">Investment cost required (Costs1)</p>
                                     <div id="slider_Costs1" class="slidecontainer">
                                     <input type="range" min="0" max="40" value="10" step="1" id="Costs1_weight">
                                     <p>Weight Multiplier: <span id="Costs1_weight_display"></span></p>
@@ -224,7 +224,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" id="movetooptions">
                         <div class="col-12"  id="options_holder" style="margin-bottom: 10px"></div>
                         <div class="col-12" name="Y-factor MACC">
                             <h3 style="background-color :#d3d3d3;border-radius:5px; padding:4px; margin:1px"> Y-Factor MACC crossover <i title="Show or hide info"class="fas fa-info-circle fa-sm" onmouseover="" align="bottom" style="cursor: pointer;color:grey;size:10px" onclick="togglemaccinfo()"></i></h3>
@@ -238,8 +238,10 @@
                 <div class="col-3">   
                     <div class="row">
                         <div class="col-12 text-dark;" align="left" style="font-size:14px;background-color:rgb(228, 228, 228);border-top-left-radius: 5px; border-top-right-radius: 5px">
-                        <br><h6 align="center" style="font-weight:bold">Filter and change Abatement options</h6>
+                        <br><h6 align="center" style="font-weight:bold">Filter and change Abatement options <i title="Show or hide info"class="fas fa-info-circle fa-sm" onmouseover="" align="bottom" style="cursor: pointer;color:grey;size:13px" onclick="togglefilterinfo()"></i></h6>
+                        <div class="col-12"  id="filterinfo" style="display:none">
                         <p>The abatement options can be filtered by checking the checkboxes and pressing the submit button. To change values of an abatement option, click this specific option and a menu will pop-up below the Y-curve.</p>
+                        </div> 
                         </div>
                     </div>
                     <nav class="sticky-top">  
@@ -252,9 +254,9 @@
                                 <input class="btn btn-secondary" type="Button" onclick="togglecheckboxes('cb')" value="(De) Select All" ><br><p></p>
                             </div>
                     </div>
-                    </div>
                     </nav>
-                    </div>             
+                </div>
+                </div>             
             </div>
         </div>
     </div>

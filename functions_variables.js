@@ -337,6 +337,10 @@ slider_physical.children[0].value =10
 document.getElementById('behaviour_weight_display').innerHTML = 1
 slider_behaviour.children[0].value =10
 
+weights1 = document.getElementById('barchart_factor')
+weights2 = document.getElementById('barchart_category')
+weights2.scrollIntoView()
+weights1.scrollIntoView()
 changedataset()
 changedataset_cat()
 changedataset_macc()
@@ -387,6 +391,12 @@ function switch_graphs() {
       toggle_macc_div.style.display = (
           toggle_macc_div.style.display == "none" ? "block" : "none"); 
   }
+
+  function togglefilterinfo() {
+    var toggle_filter_div = document.getElementById("filterinfo");
+    toggle_filter_div.style.display = (
+        toggle_filter_div.style.display == "none" ? "block" : "none"); 
+}
 
   function toggleweightinfo() {
     var toggle_weight_div = document.getElementById("weightinfo");
@@ -461,11 +471,12 @@ function switch_graphs() {
       .attr('value', technology)
       checkbox_holder.append("text")
       .style('color', 'red')
-      .style('font-size','15px')
+      .style('font-size','15px')     
       .text(' ' + label + ":" )     
       checkbox_holder.append("text")
       .text(" " + technology + " ")
       .style('font-size','15px')
+      .style('border-bottom','1px dotted black')
       .attr("id",'clicker')
       .attr("href",'options_holder')
       .attr('cursor','pointer')
@@ -878,7 +889,7 @@ abatement_option.append("input")
   .style('margin','5px')
   .on("click", submitvalues)
 
-  
+   
 var list_of_dropdowns = document.getElementsByClassName("dropdown") 
 
 for (var i = 0; i < list_of_dropdowns.length; i++) {                    //loopt door de dropdown list
@@ -886,8 +897,9 @@ for (var i = 0; i < list_of_dropdowns.length; i++) {                    //loopt 
   var value_from_dataset = get_value_of(info.id, dropdown_id)           //info.id is de technologie, dus waarde van 12 dropdowns bij technologie ophalen
   current_dropdown = document.getElementById(dropdown_id)               //lijst van hele dropdown ophalen
   current_dropdown[value_from_dataset].setAttribute('selected', true);  //de optie van de dropdown selecteren die overeenkomt met waarde in dataset
-
 }
+information = document.getElementById("movetooptions")
+information.scrollIntoView()
 }
 var list_of_dropdowns_new =document.getElementsByClassName("dropdown")
 function submitvalues() {
@@ -897,7 +909,9 @@ function submitvalues() {
   selected_option = dropdown_new[dropdown_new.selectedIndex].value              // selected waarde van de dropdowns
   technology_id = dropdown_new.name                                             // naam van de technologie
   set_value_of(technology_id,dropdown_id_new,selected_option)                   // de waarde van dropdown_id_new in technology_id wordt veranderd in selected_option                                                               
-  }
+} 
+  graph = document.getElementById("infocurve")
+  graph.scrollIntoView()
   changedataset()
   changedataset_cat()
   changedataset_macc()

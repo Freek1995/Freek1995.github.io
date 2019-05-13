@@ -169,7 +169,7 @@ var mouseover_fac = function (d){
 
   var delta = d.y1- d.y0;
   var info_fac =   "<b>" + d.mytech + "</b>" + " (total: " + totalscore +")" + "<br/>" +
-                  "<span style='color:red"  + ";'>" +description+ " : " + "</span>" + scoredescription + " (" + score + ") *"+weight;
+                  "<span style='color:red"  + ";'>" +description+ " : " + "</span>" + scoredescription + " (" + score + "), weight = "+weight;
 
     div_tooltip_fac.html(info_fac)
         .style("left", (margin.left+20+"px") )
