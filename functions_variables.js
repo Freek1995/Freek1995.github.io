@@ -481,14 +481,14 @@ function switch_graphs() {
       .style('visibility','visible')
       checkbox_holder.selectAll('#clicker')
         .on('mouseover', function(d,i) {
-          Behaviour3.select(this).transition()
+          d3.select(this).transition()
             .ease('cubic-out')
             .duration('200')
             .style('color', 'red')
             .style("cursor","pointer");
         })
         .on('mouseout', function(d,i) {
-          Behaviour3.select(this).transition()
+          d3.select(this).transition()
             .ease('cubic-out')
             .duration('200')
             .style('font-size', 11)
@@ -592,7 +592,7 @@ function clickme(d){
 abatement_option.html("")
 abatement_heading = abatement_option.append("h3")
   .text(info.id)
-  .style("background-color", "#Behaviour3Behaviour3Behaviour3")
+  .style("background-color", "#d3d3d3")
   .style("border-radius", "5px")
   .style("padding", "4px")
   .style("margin", "1px")

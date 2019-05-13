@@ -1,4 +1,4 @@
-var A1data = [{
+var Costs1data = [{
     "NAME": "0: Absent",
     "VALUE": "0"
   }, {
@@ -9,9 +9,7 @@ var A1data = [{
     "VALUE":"2"
   }];
 
-  d3.select()
-
-  var A2data = [{
+  var Costs2data = [{
     "NAME": "0: less than 5 years",
     "VALUE": "0"
   }, {
@@ -22,7 +20,7 @@ var A1data = [{
     "VALUE":"2"
   }];
   
-  var A3data = [{
+  var Costs3data = [{
     "NAME": "0: Low",
     "VALUE": "0"
   }, {
@@ -33,7 +31,7 @@ var A1data = [{
     "VALUE":"2"
   }];
   
-  var B1data = [{
+  var MultiActor1data = [{
     "NAME": "0: No",
     "VALUE": "0"
   }, {
@@ -44,7 +42,7 @@ var A1data = [{
     "VALUE":"2"
   }];
   
-  var B2data = [{
+  var MultiActor2data = [{
     "NAME": "0: Low",
     "VALUE": "0"
   }, {
@@ -55,7 +53,7 @@ var A1data = [{
     "VALUE":"2"
   }];
   
-  var B3data = [{
+  var MultiActor3data = [{
     "NAME": "0: Clear",
     "VALUE": "0"
   }, {
@@ -66,7 +64,7 @@ var A1data = [{
     "VALUE":"2"
   }];
   
-  var C1data = [{
+  var Physical1data = [{
     "NAME": "0: No",
     "VALUE": "0"
   }, {
@@ -77,7 +75,7 @@ var A1data = [{
     "VALUE":"2"
   }];
   
-  var C2data = [{
+  var Physical2data = [{
     "NAME": "0: No",
     "VALUE": "0"
   }, {
@@ -88,7 +86,7 @@ var A1data = [{
     "VALUE":"2"
   }];
   
-  var C3data = [{
+  var Physical3data = [{
     "NAME": "0: Fully proven",
     "VALUE": "0"
   }, {
@@ -99,7 +97,7 @@ var A1data = [{
     "VALUE":"2"
   }];
   
-  var D1data = [{
+  var Behaviour1data = [{
     "NAME": "0: High Knowledge",
     "VALUE": "0"
   }, {
@@ -110,7 +108,7 @@ var A1data = [{
     "VALUE":"2"
   }];
   
-  var D2data = [{
+  var Behaviour2data = [{
     "NAME": "0: Often",
     "VALUE": "0"
   }, {
@@ -121,7 +119,7 @@ var A1data = [{
     "VALUE":"2"
   }];
   
-  var D3data = [{
+  var Behaviour3data = [{
     "NAME": "0: No",
     "VALUE": "0"
   }, {
