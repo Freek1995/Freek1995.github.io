@@ -638,6 +638,15 @@ col1.append("h6")
   .style("font-weight", "bold")
 col1.append("span")
   .text("Investment cost required (Costs1)")
+  .attr("title","The degree to which the investment in an abatement measure is significant")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col1.append("br")
 var dropdownCosts1 = col1.append("select")
   .attr("name","Costs1")
@@ -657,6 +666,15 @@ optionsCosts1.text(function(d) {
 col1.append("br")
 col1.append("span")
   .text("Expected pay-back time (Costs2)")
+  .attr("title","Expected time required to earn back the investment for an abatement measure")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col1.append("br")
 var dropdownCosts2 = col1.append("select")
   .attr("name","Costs2")
@@ -676,6 +694,15 @@ optionsCosts2.text(function(d) {
 col1.append("br")
 col1.append("span")
   .text("Difficulty in financing investment (Costs3)")
+  .attr("title","The degree to which it is difficult to finance the abatement or attract appropriate financial means")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col1.append("br")
 var dropdownCosts3 = col1.append("select")
   .attr("name","Costs3")
@@ -701,6 +728,15 @@ col2.append("h6")
   .style("font-weight", "bold")
 col2.append("span")
   .text("Dependence on other actors (MultiActor1)")
+  .attr("title","Degree of dependence on actions of other actors to successfully implement and execute the abatement measure")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col2.append("br")
 var dropdownMultiActor1 = col2.append("select")
   .attr("name","MultiActor1")
@@ -720,6 +756,15 @@ optionsMultiActor1.text(function(d) {
 col2.append("br")
 col2.append("span")
   .text("Diversity of actors involved inc. conflicts (MultiActor2)")
+  .attr("title", "Degree of diversity of interests, values, roles, skills andexpectations of the actors involved. Degree of public acceptance. When opposing interests from the (local) public to the implementation of the abatement option are (expected to be) present, a high score should be given")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col2.append("br")
 var dropdownMultiActor2 = col2.append("select")
   .attr("name","MultiActor2")
@@ -739,6 +784,15 @@ optionsMultiActor2.text(function(d) {
 col2.append("br")
 col2.append("span")
   .text("Division of roles and responsibilities unclear (MultiActor3)")
+  .attr("title", "The extent to which the roles and responsibilities for the realization of the abatement option are clear")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col2.append("br")
 var dropdownMultiActor3 = col2.append("select")
   .attr("name","MultiActor3")
@@ -764,6 +818,15 @@ col3.append("h6")
   .style("font-weight", "bold")
 col3.append("span")
   .text("Physical embeddedness (Physical1)")
+  .attr("title", "Degree to which the abatement measure requires physical changes to the environment it is placed in")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col3.append("br")
 var dropdownPhysical1 = col3.append("select")
   .attr("name","Physical1")
@@ -783,6 +846,15 @@ optionsPhysical1.text(function(d) {
 col3.append("br")
 col3.append("span")
   .text("Disturbs regular operation (Physical2)")
+  .attr("title", "Degree (duration, intensity) to which status quo/regular operation is disrupted to successfully apply the abatement measure")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col3.append("br")
 var dropdownPhysical2 = col3.append("select")
   .attr("name","Physical2")
@@ -802,6 +874,15 @@ optionsPhysical2.text(function(d) {
 col3.append("br")
 col3.append("span")
   .text("Technology uncertainty (Physical3)")
+  .attr("title", "Degree to which the technological performance of the abatement measure is uncertain")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col3.append("br")
 var dropdownPhysical3 = col3.append("select")
   .attr("name","Physical3")
@@ -827,6 +908,15 @@ col4.append("h6")
   .style("font-weight", "bold")
 col4.append("span")
   .text("Absence of Knowledge (Behaviour1)")
+  .attr("title","Level of knowledge of the parties responsible for the abatement measure")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col4.append("br")
 var dropdownBehaviour1 = col4.append("select")
   .attr("name","Behaviour1")
@@ -846,6 +936,15 @@ optionsBehaviour1.text(function(d) {
 col4.append("br")
 col4.append("span")
   .text("Frequency of opportunity (Behaviour2)")
+  .attr("title", "Number of opportunities for the responsible party to realize the abatement measure")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col4.append("br")
 var dropdownBehaviour2 = col4.append("select")
   .attr("name","Behaviour2")
@@ -865,6 +964,15 @@ optionsBehaviour2.text(function(d) {
 col4.append("br")
 col4.append("span")
   .text("Requires change in behaviour (Behaviour3)")
+  .attr("title","Degree to which the actors involved need to change their day to day behaviour")
+  .on({
+    "mouseover": function(d) {
+      d3.select(this).style("cursor", "help"); 
+    },
+    "mouseout": function(d) {
+      d3.select(this).style("cursor", "default"); 
+    }
+  });
 col4.append("br")
 var dropdownBehaviour3 = col4.append("select")
   .attr("name","Behaviour3")
