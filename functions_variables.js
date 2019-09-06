@@ -22,7 +22,8 @@ var physical_weight = 1.0
 var multiactor_weight = 1.0
 var behaviour_weight = 1.0
 
-
+var abatement_option = d3.select("#options_holder").append("div")
+var checkbox_holder = d3.select("#checkboxholder")
 
 // Update to initial values - FACTORS
 document.getElementById('Costs1_weight_display').innerHTML = Costs1_weight
@@ -580,16 +581,6 @@ function togglecheckboxes(cn){
 }   
 isAllCheck = !isAllCheck;   
 }
-
-// function make_x_gridlines() {
-//   return Behaviour3.xAxis
-//   .ticks(5)
-// }
-
-// function make_y_gridlines(){
-//   return Behaviour3.yAxis
-//   .ticks(5)
-// }
 
 function clickme(d){
   showoptions()

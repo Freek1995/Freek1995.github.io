@@ -1,5 +1,7 @@
-//setting the axis and rectangles for bar chart 12-factor scale
+//This javascript file uses the d3 library to create two bar charts and a scatterplot
+// 1: 12-factor bar chart
 
+// Settings of the bar chart
 var margin = {top: 50, right: 30, bottom: 240, left: 170},
     width = 1070 - margin.left - margin.right,
     height = 450 - margin.top - margin.bottom;
@@ -33,22 +35,20 @@ var div_tooltip_fac = d3.select("#tooltipholder_fac").append("div")
   .style("opacity", 0)
   .attr("align","left")
 
-var abatement_option = d3.select("#options_holder").append("div")
-var checkbox_holder = d3.select("#checkboxholder")
-
-// Load the needed files
+// Load the needed dataset
 queue()
   .defer(d3.tsv, "factor_data.txt") 
   .await(parsedataset)
 
-
+// Filter the variables from the dataset that are not needed to fill the bar chart
 function parsedataset(error, data) {
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "technology" && key !=="label" && key !=="info" && key !=="barrier" && key !=="maccvalues" && key !=="potential"; }));
 
   data.forEach(function(d) {
-// console.log(color.domain())
     var mytech = d.technology; //add to stock code
     var y0 = 0;
+
+// Summing the high-detail factors to create category scores     
     d['costs'] = parseFloat(d['Costs1'])+parseFloat(d['Costs2'])+parseFloat(d['Costs3'])
     d['multiactor'] = parseFloat(d['MultiActor1'])+parseFloat(d['MultiActor2'])+parseFloat(d['MultiActor3'])
     d['physical'] = parseFloat(d['Physical1'])+parseFloat(d['Physical2'])+parseFloat(d['Physical3'])
@@ -59,8 +59,9 @@ function parsedataset(error, data) {
     dataset = data
     checkboxdata = data
   });
-  // console.log(data)
-  makeBarChart(dataset); //12-factorbarchart
+
+//Create the 12-factor Bar Chart
+  makeBarChart(dataset); 
   makecheckbox(dataset);
 };
 
@@ -97,14 +98,13 @@ function changedataset() {
 
 // this function creates the bar chart
 function makeBarChart(data) {
-
   svg.selectAll('g').remove()
+// Sorting left
   data.sort(function(b, a) { return b.total - a.total; });
 
 // setting the domain of the axes
   x.domain(data.map(function(d) { return d.technology; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]);
-
 
 // adding values to the x-axis
   svg.append("g")
@@ -131,21 +131,6 @@ function makeBarChart(data) {
       .attr("dy", ".71em")
       .style("text-anchor", "end");
 
-  // svg.append("g")
-  //     .attr("class","grid")
-  //     .attr("transform","translate(0,"+height +")")
-  //     .call(make_y_gridlines()
-  //         .tickSize(-height)
-  //         .tickFormat("")
-  //     )
-  
-  // svg.append("g")
-  //     .attr("class","grid")
-  //     .call(make_x_gridlines()
-  //         .tickSize(-width)
-  //         .tickFormat("")
-  //     )
-
   var technology = svg.selectAll(".technology")
       .data(data)
     .enter().append("g")
@@ -164,6 +149,8 @@ function makeBarChart(data) {
       .style("fill", function(d) { return color(d.name); })
       .transition();
 
+
+// Function to show tooltips when hovering over the rectangles in the barchart
 var mouseover_fac = function (d){
   clicklegend_fac(d,data)
 
@@ -192,11 +179,11 @@ technology.selectAll("rect")
        .on("mouseover", mouseover_fac)
        .on("mouseout", mouseout_fac)
 
+// making the ticks clickable   
 d3.selectAll('.tick')       
      .attr('className','member')
      .attr('font-size', 11);
-
-// making the ticks clickable        
+     
 d3.selectAll("#xaxis")
      .selectAll(".tick")
      .attr('font-size', 11)
@@ -218,7 +205,7 @@ d3.selectAll("#xaxis")
         .style("cursor","default");
     });
 
-// get values from dropdown list
+// Show tooltips when the cursor hovers over the legend
 var mouseover_legend_fac = function (d){
   var info_legend_fac = "\xa0" + "<b>" + category + "</b>" + "\xa0" + "<br>" +
                         "\xa0" + description + "\xa0"
@@ -285,7 +272,8 @@ var  mouseout_legend_fac = function(d) {
       );
     };
 
-// setting the 4-cateogory bar chart axis 
+// 2. 4-Category Bar Chart: Code is almost identical to code above
+// settings of the 4-cateogory bar chart axis 
 var margin_cat = {top_cat: 50, right_cat: 30, bottom_cat: 240, left_cat: 170},
     width_cat = 1070 - margin_cat.left_cat - margin_cat.right_cat,
     height_cat = 450 - margin_cat.top_cat - margin_cat.bottom_cat;
@@ -375,7 +363,6 @@ function changedataset_cat() {
     var mytech = d.technology; //add to stock code
     var y0 = 0;
 
-    //d.factors = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
     d.factors = color_cat.domain().map(function(name) { return {mytech:mytech, name: name, y0: y0, y1: y0 += +d[name]}; });
     d.total = d.factors[d.factors.length - 1].y1;
   })
@@ -387,15 +374,14 @@ function makeBarChart_cat(data) {
 
   svg_cat.selectAll('g').remove()
 
-
   data.sort(function(b, a) { return b.total - a.total; });
-// FUNCTIE HIERONDER MAAKT HET DOMEIN VAN DE X-AS EN DE Y-AS
+// This function creates the domain of X-axis and Y-axis
 
   x_cat.domain(data.map(function(d) { return d.technology; }));
   y_cat.domain([0, d3.max(data, function(d) { return d.total; })]);
 
 
-// FUNTIE HIERONDER GEEFT DE X-AS WAARDE
+// Give values to the X-axis
   svg_cat.append("g")
       .attr("class", "x axis")
       .attr("id","xaxis")
@@ -408,7 +394,7 @@ function makeBarChart_cat(data) {
     .attr("transform", "rotate(90)")
     .style("text-anchor", "start");
     
-// FUNTIE HIERONDER GEEFT DE Y-AS WAARDE
+// Gives values to the Y-axis
   svg_cat.append("g")
       .attr("class", "y axis")
       .attr("id", "yaxis")
@@ -425,9 +411,6 @@ function makeBarChart_cat(data) {
       .data(data)
     .enter().append("g")
    
- 
-      //.attr("transform", function(d) { return "translate(" + x(d.technology) + ",0)"; } )
-
   technology.selectAll("rect")
       .data(function(d) {
         return d.factors; 
@@ -441,8 +424,7 @@ function makeBarChart_cat(data) {
       .attr("height", function(d) { return y_cat(d.y0) - y_cat(d.y1); })
       .style("fill", function(d) { return color_cat(d.name); });
 
-  technology.selectAll("rect")
-// FUNCTIE HIERONDER LAAT ZIEN WAT DE WAARDE IS PER RECHTHOEKJE ALS JE ER MET JE MUIS OVERHEEN GAAT
+// The tooltip that shows when the cursor hovers over the rectangles
 
 var mouseover_cat = function (d){
   totalscore = parseFloat(Math.round((get_total_of(d.mytech,data)) * 100) / 100).toFixed(1)
@@ -517,16 +499,12 @@ var  mouseout_legend_fac = function(d) {
       .style("opacity", 0); // don't care about position!
 };
 
-// FUNCTIE HIERONDER ZORGT ER VOOR DAT ER EEN LEGEND IS
+// This function creates a legend
   var legend = svg_cat.selectAll(".legend")
       .data(color_cat.domain().slice().reverse())
     .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 25 + ")"; });
 
-  //reverse order to match order in which bars are stacked    
-    
-
-//FUNCTIE HIERONDER ZORGT ERVOOR DAT DE LEGEND EEN VLAKJE HEEFT
   legend.append("rect")
       .attr("x",-160)
       .attr("width", 18)
@@ -543,8 +521,7 @@ var  mouseout_legend_fac = function(d) {
         d3.select(this).style("cursor", "default"); 
       mouseout_legend_fac(d)}
       );
-
-// FUNCTIE HIERONDER ZORGT DAT DE LEGEND TEXT HEEFT
+    
   legend.append("text")
       .attr("x", -136)
       .attr("y", 9)
@@ -561,12 +538,12 @@ var  mouseout_legend_fac = function(d) {
       mouseout_legend_fac(d)}
       );
 };
-
+//3. Y-factor MACC Crossover
+//Settings of Y-factor MACC Crossover
 var marginmacc = { topmacc: 20, rightmacc: 20, bottommacc: 30, leftmacc: 40 },
 widthmacc  = 1070 - marginmacc.leftmacc - marginmacc.rightmacc,
 heightmacc = 550 - marginmacc.topmacc - marginmacc.bottommacc;
 
-// Add the visualization svg canvas to the vis-container <div>
 var canvas = d3.select("#scatterplot").append("svg")
 .attr("width",  widthmacc  + marginmacc.leftmacc + marginmacc.rightmacc)
 .attr("height", heightmacc + marginmacc.topmacc  + marginmacc.bottommacc)
@@ -574,8 +551,6 @@ var canvas = d3.select("#scatterplot").append("svg")
 .attr("transform", "translate(" + marginmacc.leftmacc + "," + marginmacc.topmacc + ")");
  
 // Define our scales
-var colorScale = d3.scale.category10();
-
 var xScale = d3.scale.linear()
 .range([0, widthmacc]);
 
@@ -602,9 +577,9 @@ d3.tsv('factor_data.txt', function parsedataset_macc(error, data) {
 });
 
 function changedataset_macc() {
-    new_datCosts2 = JSON.parse(JSON.stringify(dataset));
+    new_data2 = JSON.parse(JSON.stringify(dataset));
 
-    new_datCosts2.forEach(function(d){
+    new_data2.forEach(function(d){
     d['Costs1'] = d['Costs1'] * Costs1_weight
     d['Costs2'] = d['Costs2'] * Costs2_weight
     d['Costs3'] = d['Costs3'] * Costs3_weight
@@ -621,7 +596,7 @@ function changedataset_macc() {
 
     d.totalmacc = parseFloat(d['Costs1'])+parseFloat(d['Costs2'])+parseFloat(d['Costs3'])+parseFloat(d['MultiActor1'])+parseFloat(d['MultiActor2'])+parseFloat(d['MultiActor3'])+parseFloat(d['Physical1'])+parseFloat(d['Physical2'])+parseFloat(d['Physical3'])+parseFloat(d['Behaviour1'])+parseFloat(d['Behaviour2'])+parseFloat(d['Behaviour3'])
     })
-    makescatterplot(new_datCosts2)
+    makescatterplot(new_data2)
 }
 
 makescatterplot = function(data) {
@@ -637,7 +612,6 @@ makescatterplot = function(data) {
   xScale.domain([ d3.min(data, function(d) { return d.maccvalues; }) - 1,
     d3.max(data, function(d) { return d.maccvalues; }) + 1 ])
 
-    console.log(data)
   // Add x-axis to the canvas
   canvas.append("g")
       .attr("class", "axis")
@@ -649,7 +623,6 @@ makescatterplot = function(data) {
       .attr("y", -6)    // y-offset from the xAxis, moves text UPWARD!
       .style("text-anchor", "end") // right-justify text
       .text("Abatement cost [€/tCO2eq]"); 
-
 
   // Add y-axis to the canvas   
   canvas.append("g")
@@ -679,16 +652,14 @@ makescatterplot = function(data) {
                       "<span style='font-size:16px" + ";'>" + "Y-value: " + "<b>" + d.totalmacc +"</b>"+ "</span><br/>" + 
                       "<span style='font-size:16px" + ";'>" + "Abatement costs: " + "<b>" + d.maccvalues + "</b>" + " €/tCO" + "<sub>2</sub>"+ "e" + "</span><br>" +
                       "<span style='font-size:16px" + ";'>" + "Abatement potential: " + "<b>" + d.potential + "</b>"+ " MtCO" + "<sub>2</sub>"+ "e by 2030" + "</span>";
-1
+
       tooltip.html(infoMACC)
           .style("top", 30+"px")
           .style("left",50+"px")
           .style("background-color","#FAFAFA")
         .transition()
           .duration(200) // ms
-          .style("opacity", .9) // started as 0!   
-           
-        
+          .style("opacity", .9) // started as 0!            
       
   };
   // tooltip mouseout event handler
